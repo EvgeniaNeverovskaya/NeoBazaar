@@ -1,13 +1,12 @@
 import React, { useState, useEffect } from "react";
 import Header from "../../components/Header";
-import { Container, Box, Text, Spacer, useBreakpointValue } from "@chakra-ui/react";
+import { Container, Box, Text, } from "@chakra-ui/react";
 import { useParams } from "react-router-dom";
 import ProductCard from "./_productCard";
 import MemoizedCategoryFilter from "./_categoryFilter";
 import Search from "./_search";
 import products from "./_products";
 import { CiFaceFrown } from "react-icons/ci";
-import UserList from "./UserList";
 
 const categoryFilterBackgrounds = {
   "3D": "#B23386",
@@ -35,15 +34,19 @@ const categoryBackgrounds = {
 };
 
 function ProductList({ products, backgroundColor }) {
-  return (
+  let justifyContentValue = "space-around";
+  if (products.length % 2 !== 0) {
+    justifyContentValue='flex-start'
+  }
+   return (
     <Box
       className='product-list'
-      display='grid'
-      gridTemplateColumns='repeat( auto-fit, minmax(302px, 1fr) )' 
+      display='flex'
+      flexWrap='wrap'
+      justifyContent={justifyContentValue}
       bg={backgroundColor}
-    >
-      <UserList/>
       
+    >      
       {products.map((product) => (
         <ProductCard key={product.id} product={product} />
       ))}
@@ -95,7 +98,7 @@ const ProductCatalog = () => {
   const backgroundColor = categoryBackgrounds[category] || "#ffffff";
   const filterBackgrounds = categoryFilterBackgrounds[category] || "#ffffff";
   return (
-    <Box bg={backgroundColor} height='100vh' >
+    <Box bg={backgroundColor}  display="flex" flexDirection="column" minHeight="100vh">
       <Header />
       <Box bg={filterBackgrounds} marginTop='50px' maxH='270px' >
         <Container maxW='8xl'>

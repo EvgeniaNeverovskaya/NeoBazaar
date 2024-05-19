@@ -28,7 +28,8 @@ const ProductCard = ({ product }) => {
       height='451px'
       bg={bgColor} 
       borderRadius='14px'
-      p='25px'
+      p='25px'      
+      margin='20px 0'
       color='#000'>
       <Image
         src={photo}
