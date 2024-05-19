@@ -10,7 +10,6 @@ import {
   InputRightElement,
   IconButton,
   VStack,
-  Text,
   Link as ChakraLink,
   Checkbox,
   Flex,
@@ -114,17 +113,7 @@ const FormLogIn = () => {
         </Checkbox>
         <ButtonLogIn />
       </VStack>
-      <Text textStyle='body-small' margin='20px 0'>
-        Don’t have an account?
-        <ChakraLink
-          as={ReactRouterLink}
-          to='/sign-up'
-          textStyle='button-medium'
-          color='#fff'
-          padding='0 5px'>
-          Sign up
-        </ChakraLink>
-      </Text>
+      
     </Box>
   );
 };

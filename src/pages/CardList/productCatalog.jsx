@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from "react";
 import Header from "../../components/Header";
-import { Container, Box, Text } from "@chakra-ui/react";
+import { Container, Box, Text, Spacer, useBreakpointValue } from "@chakra-ui/react";
 import { useParams } from "react-router-dom";
 import ProductCard from "./_productCard";
 import MemoizedCategoryFilter from "./_categoryFilter";
 import Search from "./_search";
 import products from "./_products";
 import { CiFaceFrown } from "react-icons/ci";
+import UserList from "./UserList";
 
 const categoryFilterBackgrounds = {
   "3D": "#B23386",
@@ -37,16 +38,18 @@ function ProductList({ products, backgroundColor }) {
   return (
     <Box
       className='product-list'
-      display='flex'
-      justifyContent='space-between'
-      flexWrap='wrap'
-      gap='35px'
-      bg={backgroundColor}>
+      display='grid'
+      gridTemplateColumns='repeat( auto-fit, minmax(302px, 1fr) )' 
+      bg={backgroundColor}
+    >
+      <UserList/>
+      
       {products.map((product) => (
         <ProductCard key={product.id} product={product} />
       ))}
     </Box>
   );
+
 }
 
 const ProductCatalog = () => {
@@ -92,9 +95,9 @@ const ProductCatalog = () => {
   const backgroundColor = categoryBackgrounds[category] || "#ffffff";
   const filterBackgrounds = categoryFilterBackgrounds[category] || "#ffffff";
   return (
-    <Box bg={backgroundColor} height='100vh'>
+    <Box bg={backgroundColor} height='100vh' >
       <Header />
-      <Box bg={filterBackgrounds} marginTop='50px' maxH='270px' position='relative'>
+      <Box bg={filterBackgrounds} marginTop='50px' maxH='270px' >
         <Container maxW='8xl'>
           <Box>
             <Search onSearch={handleSearch} />
@@ -112,7 +115,7 @@ const ProductCatalog = () => {
             )
           ) : (
             <ProductList products={filteredProducts} />
-          )}{" "}
+          )}
         </Box>
       </Container>
     </Box>

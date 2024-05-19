@@ -16,6 +16,7 @@ const ButtonLogIn = () => {
         fontWeight= "700"
         lineHeight= "20px"
         _hover={{ bg: "fuchsia" }}
+        m='15px 0'
         >
         Log in
       </Button>
