@@ -9,15 +9,15 @@ import products from "./_products";
 import { CiFaceFrown } from "react-icons/ci";
 
 const categoryFilterBackgrounds = {
-  "3D": "#B23386",
-  Education: "#23A094",
-  Audio: "#FFC900",
-  Design: "#FF90E8",
-  "Drawing-&-Painting": "#98282A",
-  Photography: "#F1F333",
-  Gaming: "#DC341E",
-  "Fitness-&-Health": "#859FEC",
-  "Software-&-Development": "#2F2F2F",
+  "3D": "#FFD3F6",
+  Education: "#A7D9D4",
+  Audio: "#FFE999",
+  Design: "#FFC9F4",
+  "Drawing-&-Painting": "#D37374",
+  Photography: "#FEFFA4",
+  Gaming: "#FFB3A2",
+  "Fitness-&-Health": "#B0C1F3",
+  "Software-&-Development": "#D7D0CE",
   All: "#C5C2C0",
 };
 

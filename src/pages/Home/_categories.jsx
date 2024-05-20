@@ -74,7 +74,7 @@ const Categories = () => {
 
 
       <GridItem gridArea="1 / 3 / 2 / 4" 
-       bgImage={Audio} {...backgroundImageStyle}  />
+       bgImage={Audio} {...backgroundImageStyle} border='1px solid #e7e6e6'  />
       <GridItem gridArea="2 / 3 / 3 / 4" p="5px 20px 20px">      
       <ChakraLink as={ReactRouterLink} to='/Audio' style={linkCategories}>AUDIO →</ChakraLink >
       </GridItem>

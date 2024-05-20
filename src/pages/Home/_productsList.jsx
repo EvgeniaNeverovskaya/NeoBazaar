@@ -24,9 +24,9 @@ import { useNavigate } from 'react-router-dom';
 
 
 const flexItemStyle = {
-  flexBasis: "calc(50% - 10px)",
+  flexBasis: "calc(50% - 15px)",
   height: "calc(50% - 20px)",
-  margin: "10px 0",
+  margin: "15px 0",
   blockSize: "368px",
   borderRadius: "20px",
   padding: "35px",
@@ -136,7 +136,7 @@ const ProductsList = () => {
             }}
           />
 
-          <Text color='rgba(0, 0, 0, 1)' fontFamily="Arial" fontWeight="400" fontSize="25px">NEOBAZAAR</Text>
+          <Text color='white' fontFamily="Arial" fontWeight="400" fontSize="25px">NEOBAZAAR</Text>
         </Box>
         <Flex wrap='wrap' justify='space-between' align='flex-start'>
           <Box bg='rgba(255, 144, 232, 0.4)' style={flexItemStyle}>
@@ -200,15 +200,18 @@ const ProductsList = () => {
               Make your own way
             </Text>
               </GridItem>
-              <GridItem gridArea='3 / 2 / 4 / 3'  p={4}>
+              <GridItem gridArea='3 / 2 / 4 / 3'  p='15px 10px 0'>
                  <Button onClick={goToAllPage}
               rightIcon={<BsArrowRight fontSize="x-large" />}
               colorScheme='teal'
               w="100%"
-              p="10px 20px"
+              p="30px 20px"
               display='flex'
               justifyContent='space-between'
-              textStyle="button-large">
+              fontFamily='Arial'
+              fontWeight='400'
+              fontSize='25px'
+              lineHeight='29px'>
               Explore Features
             </Button>
               </GridItem>

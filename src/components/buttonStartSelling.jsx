@@ -6,7 +6,7 @@ const ButtonStartSelling = () => {
     <Center>
       <Button
         bg='rgba(178, 51, 134, 1)'
-        p='10px 20px'
+        p='30px 20px'
         color='#fff'
         minW='280px'
         borderRadius='10px'

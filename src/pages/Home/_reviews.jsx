@@ -72,8 +72,8 @@ const Reviews = () => {
     padding: "1.1em",
     borderRadius: "24px",
     backgroundColor: "#A7D9D4",
-    height: "445px",
-    width: "300px",
+    height: "400px",
+    width: "250px",
     overflow: "hidden",
     margin: "0 1em",
     overflowY: "scroll",
@@ -90,7 +90,7 @@ const Reviews = () => {
         "scrollbarWidth": "none",
         "overflowX": "scroll",
       }}>
-      <Container className='reviews' maxW='max-content' margin='0 auto' whiteSpace='nowrap'>
+      <Container className='reviews' margin='0 auto' whiteSpace='nowrap' maxW='8xl'>
         <Center>
           <Text
             as='h2'
@@ -113,7 +113,7 @@ What do we think about the Neobazaar? What problems does it solve <br/> and what
                 backgroundImage: `url(${block.avatar})`,
                 ...avatarStyle,
                 ...flexTextStyle,
-                height: isHovered[index] ? "75px" : "350px",
+                height: isHovered[index] ? "75px" : "300px",
               }}>
               <Text
                 as='h3'
