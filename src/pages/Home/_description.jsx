@@ -11,7 +11,7 @@ import {
 const Description = () => {
   return (
     <Box as='section' bg='#B23386'>
-      <Container maxW='8xl'>
+      <Container maxW='8xl' padding='0 30px'>
           <Grid
           color='white' padding='50px 0 100px'
             templateColumns='repeat(7, 1fr)'

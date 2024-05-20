@@ -41,7 +41,7 @@ const backgroundImageStyle  = {
 const Categories = () => {
   return (
     <Box as='section' >
-      <Container maxW='8xl' margin="50px auto">
+      <Container maxW='8xl' margin="50px auto" padding='0 30px'>
         <ButtonStartSelling />
         <Center>
           <Text as="h2" fontSize='30px' m="80px 0 50px" lineHeight="34.5px" textAlign="center" fontFamily="Arial" fontWeight="400">

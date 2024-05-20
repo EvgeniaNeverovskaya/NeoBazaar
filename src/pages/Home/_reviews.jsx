@@ -75,7 +75,6 @@ const Reviews = () => {
     height: "400px",
     width: "250px",
     overflow: "hidden",
-    margin: "0 1em",
     overflowY: "scroll",
     scrollbarWidth: "none",
     color: "#7E88A4",
@@ -90,7 +89,7 @@ const Reviews = () => {
         "scrollbarWidth": "none",
         "overflowX": "scroll",
       }}>
-      <Container className='reviews' margin='0 auto' whiteSpace='nowrap' maxW='8xl'>
+      <Container className='reviews' margin='0 auto' whiteSpace='nowrap' maxW='8xl' padding='0 30px'>
         <Center>
           <Text
             as='h2'
@@ -100,6 +99,7 @@ const Reviews = () => {
             >
 What do we think about the Neobazaar? What problems does it solve <br/> and what opportunities does it open? Who is it for? We, the team that <br/> participated in its creation, will tell you about it.          </Text>
         </Center>
+        <Box display='flex' justifyContent='space-between'>
         {blocks.map((block, index) => (
           <Box
             key={index}
@@ -161,7 +161,7 @@ What do we think about the Neobazaar? What problems does it solve <br/> and what
               {block.description}
             </Box>
           </Box>
-        ))}
+        ))} </Box>
       </Container>
     </Box>
   );

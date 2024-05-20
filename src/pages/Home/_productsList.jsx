@@ -52,7 +52,7 @@ const ProductsList = () => {
   
   return (
     <Box as='section' p='25px' position='relative'>
-      <Container maxW='8xl'>
+      <Container maxW='8xl' padding='0 30px'>
         <Box bg='rgba(178, 51, 134, 1)' style={posAbsolute}>
           <Image
             src={Arrow}
