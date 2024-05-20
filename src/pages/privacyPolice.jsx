@@ -8,7 +8,7 @@ const PrivacyPolice = () => {
     <>
       <Header />
       <Box as='section' p='50px' color='rgba(0, 90, 78, 1)'>
-        <Container maxW='8xl'>
+        <Container maxW='8xl' padding='0 30px'>
           <Center>
             <Text as='h2' margin='50px 0' textStyle='heading-small'>
               Privacy policy

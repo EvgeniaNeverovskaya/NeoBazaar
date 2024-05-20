@@ -19,7 +19,7 @@ import { Link as ReactRouterLink} from 'react-router-dom';
 const Footer = () => {
   return (
     <Box as='footer' bg="rgba(255, 144, 232)" padding="50px 0 30px">
-      <Container maxW='8xl' textTransform='uppercase'>
+      <Container maxW='8xl' padding='0 30px' textTransform='uppercase'>
     <Grid
       templateColumns="repeat(2, 1.5fr) repeat(3, 1fr) 0.5fr 0.8fr"
       templateRows="0.7fr 1fr 0.5fr 0.7fr repeat(2, 1fr)"
@@ -115,7 +115,7 @@ const Footer = () => {
         
           <List textStyle="body-large" display="flex" flexDirection="column" gap={2}>
             <ListItem>Minsk</ListItem>
-            <ListItem>Nezavisimosti proospect, 21 </ListItem>
+            <ListItem>Nezavisimosti prospect, 21 </ListItem>
             <ListItem>220095, Minsk, Belarus </ListItem>
             <ListItem>Phone: +37529 2144897</ListItem>
           </List>

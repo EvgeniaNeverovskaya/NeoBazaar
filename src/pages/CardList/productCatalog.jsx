@@ -103,7 +103,7 @@ const ProductCatalog = () => {
       <Box style={{ position: 'sticky', top: 0 }}>
       <Header />
       <Box bg={filterBackgrounds} marginTop='50px' maxH='270px'>
-        <Container maxW='8xl'>
+        <Container maxW='8xl' padding='0 30px'>
           <Box>
             <Search onSearch={handleSearch} />
             <MemoizedCategoryFilter />
@@ -111,7 +111,7 @@ const ProductCatalog = () => {
         </Container>
       </Box>
       </Box>
-      <Container maxW='8xl'>
+      <Container maxW='8xl' padding='0 30px'>
         <Box as='section' className='productList' margin='50px 0' >
           {isSearchActive ? (
             searchResults.length > 0 ? (

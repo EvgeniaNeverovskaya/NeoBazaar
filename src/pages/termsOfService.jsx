@@ -24,7 +24,7 @@ const TermsOfService = () => {
               Terms of use
             </Text>
           </Center>
-          <Box className='main-container' textStyle='body-small'>
+          <Box className='main-container' textStyle='body-small' padding='0 30px'>
             <Text className='website'>
               These Terms of Use (further referred to as the "Agreement") are
               accepted by NeoBazaar (further referred to as the "Company") and

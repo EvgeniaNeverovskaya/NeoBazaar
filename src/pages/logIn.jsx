@@ -11,9 +11,9 @@ const LogIn = () => {
   return (
     <Box as='section' bgColor='green-black' w='100vw' h='100vh' overflow='auto'>
       <HeaderLogIn />
-      <Container maxW='8xl'>
+      <Container maxW='8xl' padding='0 30px'>
         <Box display='flex' margin='50px auto'>
-          <Box margin='0 174px 0 0' width='50%'>
+          <Box width='40%'>
             <Box
               display='flex'
               flexDirection='column'
@@ -39,7 +39,7 @@ const LogIn = () => {
             <FormLogInSeparator />
             <FormLogIn />
           </Box>
-          <Box margin='50px 0 0 100px' width='50%'>
+          <Box margin='50px 0 100px' width='60%' display='flex' justifyContent='flex-end'>
             <LoginSquares />
           </Box>
         </Box>
