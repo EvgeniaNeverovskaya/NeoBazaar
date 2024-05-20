@@ -43,6 +43,7 @@ function ProductList({ products, backgroundColor }) {
       className='product-list'
       display='flex'
       flexWrap='wrap'
+      gap='4%'
       justifyContent={justifyContentValue}
       bg={backgroundColor}
       
@@ -99,14 +100,16 @@ const ProductCatalog = () => {
   const filterBackgrounds = categoryFilterBackgrounds[category] || "#ffffff";
   return (
     <Box bg={backgroundColor}  display="flex" flexDirection="column" minHeight="100vh">
+      <Box style={{ position: 'sticky', top: 0 }}>
       <Header />
-      <Box bg={filterBackgrounds} marginTop='50px' maxH='270px' >
+      <Box bg={filterBackgrounds} marginTop='50px' maxH='270px'>
         <Container maxW='8xl'>
           <Box>
             <Search onSearch={handleSearch} />
             <MemoizedCategoryFilter />
           </Box>
         </Container>
+      </Box>
       </Box>
       <Container maxW='8xl'>
         <Box as='section' className='productList' margin='50px 0' >
