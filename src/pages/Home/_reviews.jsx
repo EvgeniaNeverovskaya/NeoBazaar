@@ -99,7 +99,7 @@ const Reviews = () => {
             >
 What do we think about the Neobazaar? What problems does it solve <br/> and what opportunities does it open? Who is it for? We, the team that <br/> participated in its creation, will tell you about it.          </Text>
         </Center>
-        <Box display='flex' justifyContent='space-between'>
+        <Box display='flex' justifyContent='space-evenly' flexWrap='wrap' gap='20px'>
         {blocks.map((block, index) => (
           <Box
             key={index}
