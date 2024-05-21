@@ -8,6 +8,9 @@ import { useLocation } from "react-router-dom";
 import SignUp from "../pages/signUp";
 import ProductCatalog from "../pages/CardList/productCatalog";
 import CategoryFilter from "../pages/CardList/_categoryFilter";
+import UserMenu from "../components/userMenu";
+import Products from "../pages/products";
+import NewProducts from "../pages/NewProducts/newProducts";
 
 
 const ScrollToTop = () => {
@@ -31,6 +34,9 @@ const AllRoutes = () => (
       <Route path='/sign-up' element={<SignUp />} />
       <Route path='/:category' element={<ProductCatalog />} />
       <Route path="/" element={<CategoryFilter/>} />
+      <Route path='/products' element={<Products/>} />
+      <Route path='/products/new' element={<NewProducts/>} />
+
 
 
     </Routes>

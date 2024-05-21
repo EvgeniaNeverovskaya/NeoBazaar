@@ -46,6 +46,17 @@ const typography = extendTheme({
         fontSize: ["20px"],
         lineHeight: "20px",
       },
+      "headline-small": {
+        fontFamily: "Arial",
+        fontWeight: 400,
+        fontSize: ["30px"],
+        lineHeight: "35px",
+      },
+      "Ui/Body-medium": {
+        fontWeight: 400,
+        fontSize: ["16px"],
+        lineHeight: "22px",
+      },
   });
 
 export default typography;
