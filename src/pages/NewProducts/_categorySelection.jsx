@@ -1,9 +1,7 @@
 import React, { useState } from "react";
-import { FormControl, Select } from "@chakra-ui/react";
+import { FormControl, Select, FormErrorMessage } from "@chakra-ui/react";
 
-const CategorySelection = () => {
-  const [category, setCategory] = useState("");
-
+const CategorySelection = ({ category, setCategory, categoryError }) => {
   const categories = [
     "Education",
     "Audio",
@@ -15,23 +13,30 @@ const CategorySelection = () => {
     "Software & Development",
   ];
 
+  const isErrorCategory = categoryError && category === "";
+
   return (
-    <FormControl id='category'>
+    <FormControl id='category' isInvalid={isErrorCategory}>
       <Select
         value={category}
         onChange={(e) => setCategory(e.target.value)}
-        placeholder='Category'
         bg='#fff'
         color='#7E88A4'
         fontSize='16px'
         fontWeight='400'
         lineHeight='22px'>
+        <option selected hidden disabled value=''>
+          Category
+        </option>
         {categories.map((cat, index) => (
           <option key={index} value={cat}>
             {cat}
           </option>
         ))}
       </Select>
+      {isErrorCategory && (
+        <FormErrorMessage>Category is required.</FormErrorMessage>
+      )}
     </FormControl>
   );
 };

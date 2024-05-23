@@ -1,9 +1,7 @@
 import React, { useState } from "react";
 import { Flex, FormControl, FormLabel, Input, Select } from "@chakra-ui/react";
 
-const GeneralInfo = () => {
-  const [status, setStatus] = useState("draft");
-
+const GeneralInfo = ({ status, setStatus, id, setId, setDate }) => {
   return (
     <Flex gap='20%' mb='50px'>
       <FormControl id='id' isDisabled>
@@ -12,9 +10,10 @@ const GeneralInfo = () => {
           type='number'
           name='id'
           placeholder='ID'
-          defaultValue='1'
           bg='#fff'
           readOnly
+          value={id}
+          onChange={(e) => setId(e.target.value)}
         />
       </FormControl>
 
@@ -41,6 +40,7 @@ const GeneralInfo = () => {
           name='date'
           placeholder='Date'
           defaultValue={new Date().toLocaleDateString()}
+          onChange={(e) => setDate(e.target.value)}
           bg='#fff'
           readOnly
         />

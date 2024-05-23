@@ -2,7 +2,7 @@ import React from "react";
 import { Link as ReactRouterLink } from "react-router-dom";
 import { Link as ChakraLink, Box, Flex, Text, Button } from "@chakra-ui/react";
 
-const HeaderFormProducts = () => {
+const HeaderFormProducts = ({ onSaveClick }) => {
   return (
     <Box
       className='actions'
@@ -19,7 +19,8 @@ const HeaderFormProducts = () => {
           fontSize='20px'
           lineHeight='23px'
           fontFamily='Arial'
-          fontWeight='400'>
+          fontWeight='400'
+          onClick={onSaveClick}>
           Save
         </Button>
         <ChakraLink

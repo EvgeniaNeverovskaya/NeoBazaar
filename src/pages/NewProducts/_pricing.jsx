@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+// Pricing.js
+import React from "react";
 import {
   Box,
   Flex,
@@ -10,32 +11,36 @@ import {
 } from "@chakra-ui/react";
 import InputMask from "react-input-mask";
 
-const Pricing = () => {
-  const [isCheckedPracing, setIsCheckedPracing] = useState(false);
-  const [amount, setAmount] = useState("");
-  const [currency, setCurrency] = useState("USD"); // Default currency
-  const currencies = ["USD", "EUR", "RUB", "BYN"]; // Add more currencies as needed
+const Pricing = ({
+  amount,
+  setAmount,
+  currency,
+  setCurrency,
+  isCheckedPracing,
+  setIsCheckedPracing,
+  priciError,
+}) => {
+  const isErrorPrici = priciError && amount === "";
+
+  const currencies = ["USD", "EUR", "RUB", "BYN"];
 
   const handleCurrencyChange = (event) => {
     setCurrency(event.target.value);
   };
 
-  const handlePracingChange = () => {
-    setIsCheckedPracing(!isCheckedPracing);
-  };
-
   const handleAmountChange = (event) => {
-    let value = event.target.value.replace(/[^0-9]/g, ""); // Remove non-digit characters
+    let value = event.target.value.replace(/[^0-9]/g, "");
     setAmount(value);
   };
+
   return (
     <Box className='pricing-product'>
       <Text textStyle='headline-small' mb='30px'>
         Pricing
       </Text>
 
-      <FormControl id='pricing-product'>
-        <Flex direction='row' alignItems='center'>
+      <Flex direction='row' alignItems='center' w='100%'>
+        <FormControl id='pricing-product' isInvalid={isErrorPrici}>
           <Input
             as={InputMask}
             mask='**.**'
@@ -47,23 +52,29 @@ const Pricing = () => {
             bg='#fff'
             required
           />
+        </FormControl>
+        <FormControl id='currency-product' w='100px'>
           <Select
-            width='100px'
             value={currency}
             onChange={handleCurrencyChange}
-            bg='#fff'>
+            bg='#fff'
+            color='#7E88A4'
+            fontWeight='400'
+            fontSize='18px'
+            lineHeight='22px'>
             {currencies.map((cur) => (
               <option key={cur} value={cur}>
                 {cur}
               </option>
             ))}
           </Select>
-        </Flex>
-      </FormControl>
+        </FormControl>
+      </Flex>
       <Flex alignItems='center' gap={4}>
         <Switch
+          name='switchPricing'
           isChecked={isCheckedPracing}
-          onChange={handlePracingChange}
+          onChange={() => setIsCheckedPracing(!isCheckedPracing)}
           size='lg'
           m='30px 0'
           sx={{

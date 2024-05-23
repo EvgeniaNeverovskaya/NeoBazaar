@@ -1,10 +1,30 @@
-import React from "react";
-import { Flex, FormControl, Input, Textarea } from "@chakra-ui/react";
+import React, { useState, useEffect } from "react";
+import {
+  Flex,
+  FormControl,
+  Input,
+  Textarea,
+  FormErrorMessage,
+} from "@chakra-ui/react";
 
-const ProductsDescription = () => {
+const ContentDescription = ({
+  name,
+  setName,
+  content,
+  setContent,
+  describeProduct,
+  setDescribeProduct,
+  nameError,
+  contentError,
+  describeProductError,
+}) => {
+  const isErrorName = nameError && name === "";
+  const isErrorContent = contentError && content === "";
+  const isErrorDescribe = describeProductError && describeProduct === "";
+
   return (
     <Flex flexDirection='column' gap='50px'>
-      <FormControl id='name'>
+      <FormControl id='name' isInvalid={isErrorName}>
         <Input
           type='text'
           name='name'
@@ -12,9 +32,11 @@ const ProductsDescription = () => {
           maxLength='50'
           bg='#fff'
           required
+          onChange={(e) => setName(e.target.value)}
         />
+        {isErrorName && <FormErrorMessage>Name is required.</FormErrorMessage>}
       </FormControl>
-      <FormControl id='content'>
+      <FormControl id='content' isInvalid={isErrorContent}>
         <Textarea
           type='text'
           name='content'
@@ -23,9 +45,14 @@ const ProductsDescription = () => {
           minH='133px'
           bg='#fff'
           required
+          value={content}
+          onChange={(e) => setContent(e.target.value)}
         />
+        {isErrorContent && (
+          <FormErrorMessage>Content is required.</FormErrorMessage>
+        )}
       </FormControl>
-      <FormControl id='describe-product'>
+      <FormControl id='describe-product' isInvalid={isErrorDescribe}>
         <Textarea
           type='text'
           name='describe-product'
@@ -34,10 +61,15 @@ const ProductsDescription = () => {
           minH='147px'
           bg='#fff'
           required
+          value={describeProduct}
+          onChange={(e) => setDescribeProduct(e.target.value)}
         />
+        {isErrorDescribe && (
+          <FormErrorMessage>Describe Product is required.</FormErrorMessage>
+        )}
       </FormControl>
     </Flex>
   );
 };
 
-export default ProductsDescription;
+export default ContentDescription;

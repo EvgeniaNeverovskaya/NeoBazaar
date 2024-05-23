@@ -1,32 +1,16 @@
-import React, { useState } from "react";
-import {
-  Link as ChakraLink,
-  Box,
-  Container,
-  Flex,
-  Text,
-  Button,
-  FormControl,
-  FormLabel,
-  Input,
-  Textarea,
-  Select,
-  Switch,
-} from "@chakra-ui/react";
+// LimitProducts.js
+import React from "react";
+import { Box, Flex, Text, Switch } from "@chakra-ui/react";
 
-const LimitProducts = () => {
-  const [isCheckedSettings, setIsCheckedSettings] = useState(false);
-
-  const handleSittingsChange = () => {
-    setIsCheckedSettings(!isCheckedSettings);
-  };
+const LimitProducts = ({ isCheckedSettings, setIsCheckedSettings }) => {
   return (
     <Box className='settings-products'>
       <Text textStyle='headline-small'>Settings</Text>
       <Flex alignItems='center' gap={4}>
         <Switch
+          name='switchLimit'
           isChecked={isCheckedSettings}
-          onChange={handleSittingsChange}
+          onChange={() => setIsCheckedSettings(!isCheckedSettings)}
           size='lg'
           m='30px 0'
           sx={{
