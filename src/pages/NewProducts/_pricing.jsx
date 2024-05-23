@@ -11,6 +11,8 @@ import {
 } from "@chakra-ui/react";
 import InputMask from "react-input-mask";
 
+
+
 const Pricing = ({
   amount,
   setAmount,

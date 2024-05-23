@@ -24,10 +24,8 @@ const CategorySelection = ({ category, setCategory, categoryError }) => {
         color='#7E88A4'
         fontSize='16px'
         fontWeight='400'
-        lineHeight='22px'>
-        <option selected hidden disabled value=''>
-          Category
-        </option>
+        lineHeight='22px'
+        placeholder="Category">
         {categories.map((cat, index) => (
           <option key={index} value={cat}>
             {cat}

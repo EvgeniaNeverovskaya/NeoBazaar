@@ -4,8 +4,6 @@ import {
   Box,
   Container,
   Flex,
-  FormErrorMessage,
-  FormControl,
 } from "@chakra-ui/react";
 import HeaderFormProducts from "./_headerFormProducts";
 import GeneralInfo from "./_generalInfo";
@@ -15,6 +13,7 @@ import MediaUpload from "./_mediaUpload";
 import Pricing from "./_pricing";
 import LimitProducts from "./_limitProducts";
 import TimeSelection from "./_timeSelection";
+import PhotoUpload from "./_photoUpload";
 
 const NewProducts = () => {
   const [status, setStatus] = useState("draft");
@@ -29,6 +28,8 @@ const NewProducts = () => {
   const [amount, setAmount] = useState("");
   const [currency, setCurrency] = useState("USD");
   const [time, setTime] = useState("");
+  const [photos, setPhotos] = useState([]);
+
 
   const [nameError, setNameError] = useState(false);
   const [contentError, setContentError] = useState(false);
@@ -56,6 +57,7 @@ const NewProducts = () => {
       return;
     }
 
+
     const formData = {
       id,
       status,
@@ -69,9 +71,30 @@ const NewProducts = () => {
       currency,
       time,
       date,
+      photos,
     };
 
     console.log(formData);
+
+    setName(""); 
+    setContent(""); 
+    setDescribeProduct(""); 
+    setId("1"); 
+    setDate(new Date().toLocaleDateString()); 
+    setCategory(""); 
+    setIsCheckedSettings(false); 
+    setIsCheckedPracing(false); 
+    setAmount(""); 
+    setCurrency("USD"); 
+    setTime(""); 
+    setPhotos([]); 
+  
+    setNameError(false);
+    setContentError(false);
+    setDescribeProductError(false);
+    setPriciError(false);
+    setTimeError(false);
+    setCategoryError(false);
   };
 
   return (
@@ -109,7 +132,11 @@ const NewProducts = () => {
                 category={category}
                 setCategory={setCategory}
               />
+              <PhotoUpload setPhotos={setPhotos} photos={photos}/>
+
               <MediaUpload />
+
+
               <Pricing
                 priciError={priciError}
                 setPriciError={setPriciError}

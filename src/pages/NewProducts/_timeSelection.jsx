@@ -14,10 +14,8 @@ const TimeSelection = ({ time, setTime, timeError }) => {
         color='#7E88A4'
         fontSize='16px'
         fontWeight='400'
-        lineHeight='22px'>
-        <option selected hidden disabled value=''>
-          Time of receipt of the goods by the customer
-        </option>
+        lineHeight='22px'
+        placeholder="Time of receipt of the goods by the customer">
         {dispatchTime.map((dis, index) => (
           <option key={index} value={dis}>
             {dis}

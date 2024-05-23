@@ -32,6 +32,7 @@ const ContentDescription = ({
           maxLength='50'
           bg='#fff'
           required
+          value={name}
           onChange={(e) => setName(e.target.value)}
         />
         {isErrorName && <FormErrorMessage>Name is required.</FormErrorMessage>}
