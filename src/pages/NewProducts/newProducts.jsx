@@ -29,7 +29,7 @@ const NewProducts = () => {
   const [currency, setCurrency] = useState("USD");
   const [time, setTime] = useState("");
   const [photos, setPhotos] = useState([]);
-
+  const [limit, setLimit] = useState("")
 
   const [nameError, setNameError] = useState(false);
   const [contentError, setContentError] = useState(false);
@@ -72,6 +72,7 @@ const NewProducts = () => {
       time,
       date,
       photos,
+      limit,
     };
 
     console.log(formData);
@@ -87,7 +88,8 @@ const NewProducts = () => {
     setAmount(""); 
     setCurrency("USD"); 
     setTime(""); 
-    setPhotos([]); 
+    setPhotos([]);
+    setLimit("") 
   
     setNameError(false);
     setContentError(false);
@@ -148,6 +150,8 @@ const NewProducts = () => {
                 setIsCheckedPracing={setIsCheckedPracing}
               />
               <LimitProducts
+              limit={limit}
+              setLimit={setLimit}
                 isCheckedSettings={isCheckedSettings}
                 setIsCheckedSettings={setIsCheckedSettings}
               />
