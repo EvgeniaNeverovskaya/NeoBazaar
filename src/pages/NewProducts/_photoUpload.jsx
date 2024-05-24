@@ -16,6 +16,8 @@ import ModalDialog from "../../components/modalDialog";
 
 const PhotoUpload = ({ photos, setPhotos }) => {
   const fileInputRef = useRef(null); 
+  const numberOfPhotosUploaded = photos.length;
+
 
   const handleFileChange = (event) => {
     const files = Array.from(event.target.files);
@@ -51,6 +53,8 @@ const PhotoUpload = ({ photos, setPhotos }) => {
     
     setPhotos([...photos, ...validFormats]);
     fileInputRef.current.value = ""; 
+
+    
   };
 
   const handleRemove = (index) => {
@@ -75,9 +79,14 @@ const PhotoUpload = ({ photos, setPhotos }) => {
       flexDirection='column'
       alignItems='center'
       justifyContent='space-between'>
-      <Text alignSelf='flex-start' textStyle='Ui/Body-medium' color='#7E88A4'>
+      <Box display='flex' justifyContent='space-between' width='100%'>
+      <Text  textStyle='Ui/Body-medium' color='#7E88A4'>
         Cover
       </Text>
+      <Text  textStyle='Ui/Body-medium' color='#7E88A4'>
+      Loaded {numberOfPhotosUploaded} of 3
+      </Text>
+      </Box>
       <Grid
         templateColumns='repeat(3, 1fr)'
         gap={6}

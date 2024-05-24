@@ -5,6 +5,7 @@ import {
   Input,
   Textarea,
   FormErrorMessage,
+  FormHelperText,
 } from "@chakra-ui/react";
 
 const ContentDescription = ({
@@ -22,6 +23,10 @@ const ContentDescription = ({
   const isErrorContent = contentError && content === "";
   const isErrorDescribe = describeProductError && describeProduct === "";
 
+  const numberOfCharactersInTheNameField = name.length;
+  const numberOfCharactersInTheContentField = content.length;
+  const numberOfCharactersInTheDescribeProductField = describeProduct.length;
+
   return (
     <Flex flexDirection='column' gap='50px'>
       <FormControl id='name' isInvalid={isErrorName}>
@@ -35,7 +40,13 @@ const ContentDescription = ({
           value={name}
           onChange={(e) => setName(e.target.value)}
         />
-        {isErrorName && <FormErrorMessage>Name is required.</FormErrorMessage>}
+        {!isErrorName ? (
+          <FormHelperText textAlign='end' color='#7E88A4' padding='0 20px'>
+            {numberOfCharactersInTheNameField} of 50
+          </FormHelperText>
+        ) : (
+          <FormErrorMessage>Name is required.</FormErrorMessage>
+        )}
       </FormControl>
       <FormControl id='content' isInvalid={isErrorContent}>
         <Textarea
@@ -49,8 +60,13 @@ const ContentDescription = ({
           value={content}
           onChange={(e) => setContent(e.target.value)}
         />
-        {isErrorContent && (
-          <FormErrorMessage>Content is required.</FormErrorMessage>
+
+        {!isErrorContent ? (
+          <FormHelperText textAlign='end' color='#7E88A4' padding='0 20px'>
+            {numberOfCharactersInTheContentField} of 100
+          </FormHelperText>
+        ) : (
+          <FormErrorMessage>Name is required.</FormErrorMessage>
         )}
       </FormControl>
       <FormControl id='describe-product' isInvalid={isErrorDescribe}>
@@ -65,8 +81,13 @@ const ContentDescription = ({
           value={describeProduct}
           onChange={(e) => setDescribeProduct(e.target.value)}
         />
-        {isErrorDescribe && (
-          <FormErrorMessage>Describe Product is required.</FormErrorMessage>
+
+        {!isErrorDescribe ? (
+          <FormHelperText textAlign='end' color='#7E88A4' padding='0 20px'>
+            {numberOfCharactersInTheDescribeProductField} of 300
+          </FormHelperText>
+        ) : (
+          <FormErrorMessage>Name is required.</FormErrorMessage>
         )}
       </FormControl>
     </Flex>
