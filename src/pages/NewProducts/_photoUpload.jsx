@@ -12,11 +12,11 @@ import {
   ModalBody,
   Input,
 } from "@chakra-ui/react";
-import ModalDialog from "../../components/modalDialog";
 
 const PhotoUpload = ({ photos, setPhotos }) => {
   const fileInputRef = useRef(null); 
   const numberOfPhotosUploaded = photos.length;
+  
 
 
   const handleFileChange = (event) => {
@@ -117,24 +117,6 @@ const PhotoUpload = ({ photos, setPhotos }) => {
         ))}
       </Grid>
 
-      <ModalDialog
-        openButton={
-          <Button
-            leftIcon={<BsFileEarmarkArrowUp fontSize='24px' />}
-            color='white'
-            bg='black'
-            borderRadius='10px'
-            w='305px'
-            p='28px'
-            fontFamily='Arial'
-            fontSize='20px'
-            fontWeight='400'
-            lineHeight='23px'
-            m='20px'>
-            Upload a cover photo
-          </Button>
-        }>
-        <ModalBody display='flex' justifyContent="center" alignItems="center" gap={8}>
           <Input
             type='file'
             accept='image/*'
@@ -155,23 +137,8 @@ const PhotoUpload = ({ photos, setPhotos }) => {
             lineHeight='23px'
             onClick={handleClick}
             mb='20px'>
-            Computer files
+            Upload a cover photo
           </Button>
-          <Button
-            leftIcon={<FaLink  fontSize='24px' />}
-            color='white'
-            bg='black'
-            borderRadius='10px'
-            p='28px'
-            fontFamily='Arial'
-            fontSize='20px'
-            fontWeight='400'
-            lineHeight='23px'
-            mb='20px'>
-            External link
-          </Button>
-        </ModalBody>
-      </ModalDialog>
 
       <Text textStyle='Ui/Body-medium' color='#7E88A4' textAlign='center'>
         Supports file formats: JPEG, PNG, GIF. The image size is at least

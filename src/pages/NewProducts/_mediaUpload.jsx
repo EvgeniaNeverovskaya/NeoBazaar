@@ -12,8 +12,8 @@ const MediaUpload = ({file, setFile}) => {
       return;
     }
 
-    const fileURL = URL.createObjectURL(file);
-    setFile({...file, url: fileURL });
+    // Only set the file object, not the URL
+    setFile(file);
   };
 
   const handleButtonClick = () => {
@@ -22,9 +22,6 @@ const MediaUpload = ({file, setFile}) => {
 
   const handleDeleteFile = () => {
     setFile(null);
-    if (file?.url) {
-      URL.revokeObjectURL(file.url);
-    }
   };
 
   return (
@@ -44,7 +41,8 @@ const MediaUpload = ({file, setFile}) => {
         </Text>
         {file && (
           <Box display='flex' alignItems='center'>
-            <Link href={file.url} isExternal target="_blank" color="#7E88A4" fontSize='20px' fontFamily="Arial">
+            {/* Display the file preview using the temporary URL */}
+            <Link href={URL.createObjectURL(file)} isExternal target="_blank" color="#7E88A4" fontSize='20px' fontFamily="Arial">
               Open Product Preview
             </Link>
             <Button
@@ -92,5 +90,6 @@ const MediaUpload = ({file, setFile}) => {
     </>
   );
 };
+
 
 export default MediaUpload;

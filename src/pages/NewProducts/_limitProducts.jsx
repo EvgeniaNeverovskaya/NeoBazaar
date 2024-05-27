@@ -2,7 +2,15 @@ import React from "react";
 import { Box, Flex, Text, Switch, Input, FormControl } from "@chakra-ui/react";
 
 const LimitProducts = ({ isCheckedSettings, setIsCheckedSettings, limit, setLimit }) => {
-  const display = isCheckedSettings ? 'inline-flex' : 'none';
+  
+  const display = isCheckedSettings? 'inline-flex' : 'none';
+  const handleLimitChange = (value) => {
+    // Convert the value to a number and check if it's within the allowed range
+    const numericValue = Number(value);
+    if (numericValue >= 0 && numericValue <= 9999) {
+      setLimit(numericValue.toString()); // Ensure the value is a string since the input expects a string
+    }
+  };
 
   return (
     <Box className='settings-products'>
@@ -16,7 +24,7 @@ const LimitProducts = ({ isCheckedSettings, setIsCheckedSettings, limit, setLimi
           m='30px 0'
           sx={{
             ".chakra-switch__track": {
-              backgroundColor: isCheckedSettings ? "#B23386" : "black",
+              backgroundColor: isCheckedSettings? "#B23386" : "black",
             },
           }}
         />
@@ -38,7 +46,7 @@ const LimitProducts = ({ isCheckedSettings, setIsCheckedSettings, limit, setLimi
             required
             display={display}
             value={limit}
-            onChange={(e) => setLimit(e.target.value)}
+            onChange={(e) => handleLimitChange(e.target.value)} 
             />
           </FormControl>
       </Flex>
