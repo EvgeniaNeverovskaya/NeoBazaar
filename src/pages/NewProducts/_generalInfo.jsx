@@ -28,8 +28,8 @@ const GeneralInfo = ({ status, setStatus, id, setId, setDate }) => {
           fontWeight='400'
           lineHeight='22px'>
           <option value='draft'>Draft</option>
-          <option value='active'>Active</option>
-          <option value='inactive'>Inactive</option>
+          <option value='active'>Published</option>
+          <option value='inactive'>Deactivated</option>
         </Select>
       </FormControl>
 

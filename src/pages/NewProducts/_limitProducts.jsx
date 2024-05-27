@@ -1,4 +1,3 @@
-// LimitProducts.js
 import React from "react";
 import { Box, Flex, Text, Switch, Input, FormControl } from "@chakra-ui/react";
 
