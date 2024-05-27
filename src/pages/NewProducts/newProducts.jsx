@@ -30,6 +30,8 @@ const NewProducts = () => {
   const [time, setTime] = useState("");
   const [photos, setPhotos] = useState([]);
   const [limit, setLimit] = useState("")
+  const [file, setFile] = useState(null);
+
 
   const [nameError, setNameError] = useState(false);
   const [contentError, setContentError] = useState(false);
@@ -73,6 +75,7 @@ const NewProducts = () => {
       date,
       photos,
       limit,
+      file,
     };
 
     console.log(formData);
@@ -90,6 +93,7 @@ const NewProducts = () => {
     setTime(""); 
     setPhotos([]);
     setLimit("") 
+    setFile(null)
   
     setNameError(false);
     setContentError(false);
@@ -136,7 +140,7 @@ const NewProducts = () => {
               />
               <PhotoUpload setPhotos={setPhotos} photos={photos}/>
 
-              <MediaUpload />
+              <MediaUpload file={file} setFile={setFile}/>
 
 
               <Pricing
