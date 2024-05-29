@@ -1,4 +1,6 @@
-import { React, useState } from "react";
+import React, { useState } from "react";
+import { useForm } from "react-hook-form";
+import axios from 'axios';
 import { Link, Link as ReactRouterLink } from "react-router-dom";
 import {
   Box,
@@ -12,12 +14,11 @@ import {
   Link as ChakraLink,
   Checkbox,
   Button,
+  FormErrorMessage,
 } from "@chakra-ui/react";
-import { useForm } from "react-hook-form";
-
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 
-const inputSyle = {
+const inputStyle = {
   color: "black",
   bg: "white",
   border: "solid white 2px",
@@ -35,105 +36,166 @@ const FormSignUp = () => {
     register,
     handleSubmit,
     watch,
-    formState: { errors, isSubmitting },
+    formState: { errors },
   } = useForm();
-
-  const onSubmit = (data) => {
-    console.log(data);
-    // Handle form submission here
-  };
-
-  const isAgreed = watch("agree", false);
-
+  const password = watch("password");
+  const passwordConfirmation = watch("passwordConfirmation");
+  const [isChecked, setIsChecked] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
 
   const togglePasswordVisibility = () => {
     setShowPassword(!showPassword);
   };
 
+  const onSubmit = async (data) => {
+    try {
+      await axios.post('https://neobazaar-ee1c625c2e80.herokuapp.com/api/v1/users', {
+        username: data.username, 
+        email: data.email,
+        password: data.password,
+      });
+      alert('Data sent successfully!');
+    } catch (error) {
+      console.error('There was an error!', error);
+      alert('Failed to send data.');
+    }
+  };
+  
+  
+
   return (
     <Box as='form' onSubmit={handleSubmit(onSubmit)}>
       <VStack alignItems='flex-start' spacing={2}>
-        <FormControl>
-          <FormLabel htmlFor='userName' />
+
+        <FormControl isInvalid={!!errors.username}>
           <Input
-            id='userName'
+            id='username'
             type='text'
             placeholder='User Name'
-            {...register("userName", { required: true })}
-            sx={inputSyle}
-          />
+            sx={inputStyle}
+            {...register("username", {
+              required: "Username is required.",
+              maxLength: {
+                value: 30,
+                message: "Username cannot exceed 30 characters."
+              }
+            })}          />
+          <FormErrorMessage>{errors.username?.message}</FormErrorMessage>
         </FormControl>
 
-        <FormControl m='0 0 15px'>
-          <FormLabel htmlFor='email' />
+        {/* Email Field */}
+        <FormControl m='0 0 15px' isInvalid={!!errors.email}>
           <Input
             id='email'
             type='email'
             placeholder='E-mail'
             autoComplete='email'
-            {...register("email", { required: true })}
-            sx={inputSyle}
+            sx={inputStyle}
+            {...register("email", {
+              required: "Email is required.",
+              pattern: {
+                value: /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,63}$/,
+                message: "Please enter a valid email address."
+              },
+              maxLength: {
+                value: 192,
+                message: "Email cannot exceed 192 characters."
+              },
+              validate: {
+                emailStructure: value => {
+                  const parts = value.split('@');
+                  if (parts.length!== 2) return "Email must follow the structure: local-part@domain.";
+                  const localPart = parts[0];
+                  const domainParts = parts[1].split('.');
+                  if (localPart.length > 64 || domainParts.some(part => part.length > 63)) return "Local part and domain parts must not exceed 64 and 63 characters respectively.";
+                  return true; // Pass validation if all checks pass
+                }
+              }
+            })}
           />
+          <FormErrorMessage>{errors.email?.message}</FormErrorMessage>
         </FormControl>
 
-        <FormControl>
-          <FormLabel htmlFor='password' />
+        {/* Password Field */}
+        <FormControl isInvalid={!!errors.password}>
           <InputGroup>
             <Input
-              id='password'
-              type={showPassword ? "text" : "password"}
-              placeholder='Password'
-              autoComplete='new-password'
-              {...register("password", { required: true })}
-              sx={inputSyle}
-            />
+               id='password'
+               type={showPassword ? "text" : "password"}
+               placeholder='Password'
+               autoComplete='new-password'
+               sx={inputStyle}
+               {...register("password", {
+                 required: "Password is required.",
+                 minLength: {
+                   value: 8,
+                   message: "Password must be at least 8 characters long."
+                 },
+                 maxLength: {
+                   value: 30,
+                   message: "Password cannot exceed 30 characters."
+                 },
+                 validate: {
+                   containsDigit: value => /\d/.test(value) || "Password must contain at least one digit.",
+                   containsLowercase: value => /[a-z]/.test(value) || "Password must contain at least one lowercase letter.",
+                   containsUppercase: value => /[A-Z]/.test(value) || "Password must contain at least one uppercase letter.",
+                   containsSpecialChar: value => /[\W_\-\.]/.test(value) || "Password must contain at least one special character (!?, -, _,.)"
+                 }
+               })}       />
             <InputRightElement>
               <IconButton
                 bg='transparent'
                 icon={showPassword ? <FaEyeSlash /> : <FaEye />}
                 onClick={togglePasswordVisibility}
-              />
+                />
             </InputRightElement>
           </InputGroup>
+          <FormErrorMessage>{errors.password?.message}</FormErrorMessage>
         </FormControl>
 
-        <FormControl>
-          <FormLabel htmlFor='passwordConfirmation' />
+       
+        <FormControl isInvalid={!!errors.passwordConfirmation}>
           <InputGroup>
             <Input
               id='passwordConfirmation'
               type={showPassword ? "text" : "password"}
               placeholder='Password Confirmation'
               autoComplete='new-password'
-              {...register("passwordConfirmation", { required: true })}
-              sx={inputSyle}
+              {...register("passwordConfirmation", {
+                required: "Confirm your password",
+                validate: (value) =>
+                  value === password || "Passwords do not match.",
+              })}
+              sx={inputStyle}
             />
             <InputRightElement>
               <IconButton
                 bg='transparent'
                 icon={showPassword ? <FaEyeSlash /> : <FaEye />}
                 onClick={togglePasswordVisibility}
-              />
+                />
             </InputRightElement>
           </InputGroup>
+          <FormErrorMessage>
+            {errors.passwordConfirmation?.message}
+          </FormErrorMessage>
         </FormControl>
 
+
         <Button
+          isDisabled={!isChecked}
           width='100%'
           type='submit'
           margin='20px 0 0'
           bg='#000'
           color='#fff'
-          isDisabled={!isAgreed || isSubmitting}
           _hover={{ bg: "#000" }}>
-          Sign up
+          Sign Up
         </Button>
-
         <FormControl display='flex' alignItems='center'>
           <Checkbox
-            {...register("agree")}
-            isChecked={isAgreed}
+            isChecked={isChecked}
+            onChange={(e) => setIsChecked(e.target.checked)}
             sx={{
               ".chakra-checkbox__control": {
                 backgroundColor: "transparent",
@@ -149,8 +211,8 @@ const FormSignUp = () => {
                   bg: "transparent",
                 },
               },
-            }}
-          />
+            }}>
+          </Checkbox>
           <FormLabel m='0 10px'>
             I agree to the
             <ChakraLink
@@ -168,6 +230,7 @@ const FormSignUp = () => {
             </ChakraLink>
           </FormLabel>
         </FormControl>
+
       </VStack>
     </Box>
   );
