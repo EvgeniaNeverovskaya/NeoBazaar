@@ -29,7 +29,7 @@ const Search = ({ onSearch }) => {
  const clearVisible = searchQuery ? "1" : "0";
 
   return (
-    <Box padding='50px 0 25px' display='flex' gap='50px'>
+    <Box padding='25px 0 12.5px' display='flex' gap='50px'>
       <InputGroup position='relative'>
         <InputLeftElement
         height='-webkit-fill-available'

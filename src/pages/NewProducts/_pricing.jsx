@@ -41,29 +41,15 @@ const Pricing = ({
         Pricing
       </Text>
 
-      <Flex direction='row' alignItems='center' w='100%'>
-        <FormControl id='pricing-product' isInvalid={isErrorPrici}>
-          <Input
-            as={InputMask}
-            mask='**.**'
-            maskChar={null}
-            name='pricing-product'
-            placeholder='Amount'
-            value={amount}
-            onChange={handleAmountChange}
-            bg='#fff'
-            required
-          />
-        </FormControl>
-        <FormControl id='currency-product' w='100px'>
+      <Flex direction='column' alignItems='center' w='100%' gap='25px'>
+      <FormControl id='currency-product'>
           <Select
             value={currency}
             onChange={handleCurrencyChange}
             bg='#fff'
             color='#7E88A4'
-            fontWeight='400'
-            fontSize='18px'
-            lineHeight='22px'>
+            placeholder='Currency'
+            >
             {currencies.map((cur) => (
               <option key={cur} value={cur}>
                 {cur}
@@ -71,6 +57,20 @@ const Pricing = ({
             ))}
           </Select>
         </FormControl>
+        <FormControl id='pricing-product' isInvalid={isErrorPrici}>
+          <Input
+            as={InputMask}
+            mask='**.**'
+            maskChar={null}
+            name='pricing-product'
+            placeholder='Price'
+            value={amount}
+            onChange={handleAmountChange}
+            bg='#fff'
+            required
+          />
+        </FormControl>
+       
       </Flex>
       <Flex alignItems='center' gap={4}>
         <Switch

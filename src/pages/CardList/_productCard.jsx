@@ -24,11 +24,11 @@ const ProductCard = ({ product }) => {
   return (
     <Box
       className='product-card'
-      width='302px'
+      width='298px'
       height='451px'
       bg={bgColor} 
       borderRadius='14px'
-      p='25px'      
+      p='30px'      
       margin='20px 0'
       color='#000'>
       <Image
@@ -40,7 +40,7 @@ const ProductCard = ({ product }) => {
         style={{
           borderRadius: "14px",
           width: "100%",
-          height: "293px",
+          height: "274px",
           objectFit: "cover",
           marginBottom: "15px",
         }}

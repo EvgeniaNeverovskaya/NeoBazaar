@@ -26,10 +26,11 @@ const CategoryFilter = () => {
     fontWeight: "500",
     lineHeight: "16.71px", 
     width: "auto", 
-    height: "41px",
+    height: "35px",
     borderRadius: '6px',
     padding: '12px',
     margin: '0 10px',
+    whiteSpace: 'wrap'
  });
  const { category } = useParams();
 
@@ -48,9 +49,9 @@ const CategoryFilter = () => {
 
 const backgroundColor = sectionFilterAndSearchBackgrounds[category] || "#ffffff";
  return (
-    <Box as="section" className="AllCategories" padding='25px 0 50px'>
+    <Box as="section" className="AllCategories" padding='12.5px 0 25px'>
       <Container maxW="8xl" padding='0px'>
-      <Box display="flex" justifyContent="space-between" bg={backgroundColor} borderRadius="14px" padding="10px">
+      <Box display="flex" justifyContent="space-between" bg={backgroundColor} borderRadius="14px" padding="6.5px">
           <Button sx={ButtonStyle('All')} onClick={() => handleCategoryClick('All')}>All</Button>
           <Button sx={ButtonStyle('3D')} onClick={() => handleCategoryClick('3D')}>3D</Button>
           <Button sx={ButtonStyle('Education')} onClick={() => handleCategoryClick('Education')}>Education</Button>
