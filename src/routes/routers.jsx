@@ -11,6 +11,7 @@ import CategoryFilter from "../pages/CardList/_categoryFilter";
 import UserMenu from "../components/userMenu";
 import Products from "../pages/products";
 import NewProducts from "../pages/NewProducts/newProducts";
+import ResetPasswords from "../pages/resetPasswords";
 
 
 const ScrollToTop = () => {
@@ -32,8 +33,8 @@ const AllRoutes = () => (
       <Route path='/terms-of-service' element={<TermsOfService />} />
       <Route path='/log-in' element={<LogIn />} />
       <Route path='/sign-up' element={<SignUp />} />
+      <Route path='/reset' element={<ResetPasswords />} />
       <Route path='/:category' element={<ProductCatalog />} />
-      <Route path="/" element={<CategoryFilter/>} />
       <Route path='/products' element={<Products/>} />
       <Route path='/products/new' element={<NewProducts/>} />
 

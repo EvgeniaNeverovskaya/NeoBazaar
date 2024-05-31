@@ -58,7 +58,8 @@ const FormLogIn = () => {
         </FormControl>
         <Flex justifyContent='flex-end' width='100%'>
           <Box>
-            <ChakraLink textStyle='body-small'>
+            <ChakraLink as={ReactRouterLink}
+                  to='/reset' textStyle='body-small'>
               Forgot your password?
             </ChakraLink>
           </Box>

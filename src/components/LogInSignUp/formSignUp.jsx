@@ -18,7 +18,7 @@ import {
 } from "@chakra-ui/react";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 
-const inputStyle = {
+export const inputStyle = {
   color: "black",
   bg: "white",
   border: "solid white 2px",
@@ -49,7 +49,7 @@ const FormSignUp = () => {
 
   const onSubmit = async (data) => {
     try {
-      await axios.post('https://neobazaar-ee1c625c2e80.herokuapp.com/api/v1/users', {
+      await axios.post('https://neobazaar-ee1c625c2e80.herokuapp.com/api/v1/logIn', {
         username: data.username, 
         email: data.email,
         password: data.password,
@@ -83,7 +83,6 @@ const FormSignUp = () => {
           <FormErrorMessage>{errors.username?.message}</FormErrorMessage>
         </FormControl>
 
-        {/* Email Field */}
         <FormControl m='0 0 15px' isInvalid={!!errors.email}>
           <Input
             id='email'
@@ -108,7 +107,7 @@ const FormSignUp = () => {
                   const localPart = parts[0];
                   const domainParts = parts[1].split('.');
                   if (localPart.length > 64 || domainParts.some(part => part.length > 63)) return "Local part and domain parts must not exceed 64 and 63 characters respectively.";
-                  return true; // Pass validation if all checks pass
+                  return true; 
                 }
               }
             })}
@@ -116,7 +115,6 @@ const FormSignUp = () => {
           <FormErrorMessage>{errors.email?.message}</FormErrorMessage>
         </FormControl>
 
-        {/* Password Field */}
         <FormControl isInvalid={!!errors.password}>
           <InputGroup>
             <Input
