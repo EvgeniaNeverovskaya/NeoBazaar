@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from "react";
 import Header from "../../components/Header";
-import { Container, Box, Text, } from "@chakra-ui/react";
+import { Container, Box, Text } from "@chakra-ui/react";
 import { useParams } from "react-router-dom";
 import ProductCard from "./_productCard";
 import MemoizedCategoryFilter from "./_categoryFilter";
 import Search from "./_search";
 import products from "./_products";
 import { CiFaceFrown } from "react-icons/ci";
+import CustomPagination from "./_customPagination";
 
 const categoryFilterBackgrounds = {
   "3D": "#FFD3F6",
@@ -36,9 +37,9 @@ const categoryBackgrounds = {
 function ProductList({ products, backgroundColor }) {
   let justifyContentValue = "space-around";
   if (products.length % 2 !== 0) {
-    justifyContentValue='flex-start'
+    justifyContentValue = 'flex-start'
   }
-   return (
+  return (
     <Box
       className='product-list'
       display='flex'
@@ -46,14 +47,12 @@ function ProductList({ products, backgroundColor }) {
       gap='4%'
       justifyContent={justifyContentValue}
       bg={backgroundColor}
-      
-    >      
+    >
       {products.map((product) => (
         <ProductCard key={product.id} product={product} />
       ))}
     </Box>
   );
-
 }
 
 const ProductCatalog = () => {
@@ -61,18 +60,27 @@ const ProductCatalog = () => {
   const [filteredProducts, setFilteredProducts] = useState(products);
   const [searchResults, setSearchResults] = useState([]);
   const [isSearchActive, setIsSearchActive] = useState(false);
+  const itemsPerPage = 20;
+  const [currentPage, setCurrentPage] = useState(1);
+  const [totalPage, setTotalPage] = useState(Math.ceil(filteredProducts.length / itemsPerPage));
+
+  const updateCurrentPage = (newPage) => {
+    setCurrentPage(newPage);
+  };
 
   useEffect(() => {
     if (category && category !== "All") {
-      setFilteredProducts(
-        products.filter((product) => product.category === category),
-      );
+      const newFilteredProducts = products.filter((product) => product.category === category);
+      setFilteredProducts(newFilteredProducts);
+      setTotalPage(Math.ceil(newFilteredProducts.length / itemsPerPage));
     } else {
       setFilteredProducts(products);
+      setTotalPage(Math.ceil(products.length / itemsPerPage));
     }
     setSearchResults([]);
     setIsSearchActive(false);
-  }, [category, products]);
+    setCurrentPage(1);
+  }, [category]);
 
   const handleSearch = (query) => {
     const results = filteredProducts.filter((product) =>
@@ -80,15 +88,18 @@ const ProductCatalog = () => {
     );
     setSearchResults(results);
     setIsSearchActive(true);
+    setCurrentPage(1); 
+    setTotalPage(Math.ceil(results.length / itemsPerPage));
   };
 
   function NoResults() {
     return (
-      <Box sx={{  position: "absolute",
-      top: "50%",
-      left: "50%",
-      transform: "translate(-50%, -50%)",
-      textAlign: "-webkit-center"
+      <Box sx={{
+        position: "absolute",
+        top: "50%",
+        left: "50%",
+        transform: "translate(-50%, -50%)",
+        textAlign: "-webkit-center"
       }}>
         <CiFaceFrown fontSize='44px' />
         <Text fontSize='25px' fontWeight='700' lineHeight='20px' mt='25px'>Product not found</Text>
@@ -98,31 +109,40 @@ const ProductCatalog = () => {
 
   const backgroundColor = categoryBackgrounds[category] || "#ffffff";
   const filterBackgrounds = categoryFilterBackgrounds[category] || "#ffffff";
+
   return (
-    <Box bg={backgroundColor}  display="flex" flexDirection="column" minHeight="100vh">
+    <Box bg={backgroundColor} display="flex" flexDirection="column" minHeight="100vh">
       <Box style={{ position: 'sticky', top: 0 }}>
-      <Header />
-      <Box bg={filterBackgrounds} marginTop='50px' maxH='270px'>
-        <Container maxW='8xl' padding='0 30px'>
-          <Box>
-            <Search onSearch={handleSearch} />
-            <MemoizedCategoryFilter />
-          </Box>
-        </Container>
-      </Box>
+        <Header />
+        <Box bg={filterBackgrounds} marginTop='50px' maxH='270px'>
+          <Container maxW='8xl' padding='0 30px'>
+            <Box>
+              <Search onSearch={handleSearch} />
+              <MemoizedCategoryFilter />
+            </Box>
+          </Container>
+        </Box>
       </Box>
       <Container maxW='8xl' padding='0 30px'>
-        <Box as='section' className='productList' margin='50px 0' >
+        <Box>
+        </Box>
+        
+        <Box as='section' className='productList' margin='50px 0'>
           {isSearchActive ? (
             searchResults.length > 0 ? (
-              <ProductList products={searchResults} />
+              <ProductList products={searchResults.slice((currentPage - 1) * itemsPerPage, currentPage * itemsPerPage)} />
             ) : (
-              <NoResults/>
+              <NoResults />
             )
           ) : (
-            <ProductList products={filteredProducts} />
+            <ProductList products={filteredProducts.slice((currentPage - 1) * itemsPerPage, currentPage * itemsPerPage)} />
           )}
         </Box>
+        <CustomPagination
+          currentPage={currentPage}
+          totalPage={totalPage}
+          updateCurrentPage={updateCurrentPage}
+        />
       </Container>
     </Box>
   );
