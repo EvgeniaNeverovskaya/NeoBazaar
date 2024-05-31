@@ -1,5 +1,11 @@
 import React from "react";
-import { Center, Text, Box, Container, Link as ChakraLink, } from "@chakra-ui/react";
+import {
+  Center,
+  Text,
+  Box,
+  Container,
+  Link as ChakraLink,
+} from "@chakra-ui/react";
 import { Link as ReactRouterLink } from 'react-router-dom';
 import Header from "../components/Header";
 
@@ -8,28 +14,31 @@ function makeLink(email) {
     <a
       href={`mailto:${email}`}
       onMouseEnter={(e) => (e.currentTarget.style.textDecoration = "underline")}
-      onMouseLeave={(e) => (e.currentTarget.style.textDecoration = "none")}>
-      {` ${email} `}
+      onMouseLeave={(e) => (e.currentTarget.style.textDecoration = "none")}
+    >
+      {email}
     </a>
   );
 }
+
+
 const TermsOfService = () => {
   return (
     <>
       <Header />
-      <Box as='section' p='50px' color='rgba(0, 90, 78, 1)'>
-        <Container maxW='8xl'>
+      <Box as="section" p="50px" color="rgba(0, 90, 78, 1)">
+        <Container maxW="8xl">
           <Center>
-            <Text as='h2' margin='50px 0' textStyle='heading-small'>
+            <Text as="h2" margin="50px 0" textStyle="heading-small">
               Terms of use
             </Text>
           </Center>
-          <Box className='main-container' textStyle='body-small' padding='0 30px'>
-            <Text className='website'>
+          <Box className="main-container" textStyle="body-small" padding="0 30px">
+            <Text className="website">
               These Terms of Use (further referred to as the "Agreement") are
               accepted by NeoBazaar (further referred to as the "Company") and
               apply to website
-              <ChakraLink as={ReactRouterLink} to="/"> http://www.neobazaar.com. </ChakraLink>, branded pages on other
+              <ChakraLink as={ReactRouterLink} to="/"> https://neobazaar1-20185008ae61.herokuapp.com/ </ChakraLink>, branded pages on other
               platforms, mobile and other applications used to work with such
               websites and other platforms (further referred to as the
               "Platform"), which are operated directly by the Company or on her
@@ -40,7 +49,7 @@ const TermsOfService = () => {
               {makeLink("neodigitalbazaar@gmail.com")}
               email address.
             </Text>
-            <Text textStyle='body-h3' margin='40px 0 15px'>
+            <Text textStyle="body-h3" margin="40px 0 15px">
               Content
             </Text>
             <Text>
@@ -85,9 +94,10 @@ const TermsOfService = () => {
               {makeLink("neodigitalbazaar@gmail.com")}
             </Text>
             <Text
-              className='changes-to-terms'
-              textStyle='body-h3'
-              margin='40px 0 15px'>
+              className="changes-to-terms"
+              textStyle="body-h3"
+              margin="40px 0 15px"
+            >
               Personal data
             </Text>
             <Text>
@@ -100,9 +110,10 @@ const TermsOfService = () => {
               users of the Platform.
             </Text>
             <Text
-              className='changes-to-terms'
-              textStyle='body-h3'
-              margin='40px 0 15px'>
+              className="changes-to-terms"
+              textStyle="body-h3"
+              margin="40px 0 15px"
+            >
               Using the Platform
             </Text>
             <Text>
@@ -134,9 +145,10 @@ const TermsOfService = () => {
               {makeLink("neodigitalbazaar@gmail.com")}
             </Text>
             <Text
-              className='changes-to-terms'
-              textStyle='body-h3'
-              margin='40px 0 15px'>
+              className="changes-to-terms"
+              textStyle="body-h3"
+              margin="40px 0 15px"
+            >
               Dispute resolution
             </Text>
             <Text>
@@ -154,9 +166,10 @@ const TermsOfService = () => {
               to court.
             </Text>
             <Text
-              className='changes-to-terms'
-              textStyle='body-h3'
-              margin='40px 0 15px'>
+              className="changes-to-terms"
+              textStyle="body-h3"
+              margin="40px 0 15px"
+            >
               Intellectual property
             </Text>
             <Text>
@@ -179,9 +192,10 @@ const TermsOfService = () => {
               {makeLink("neodigitalbazaar@gmail.com")}
             </Text>
             <Text
-              className='changes-to-terms'
-              textStyle='body-h3'
-              margin='40px 0 15px'>
+              className="changes-to-terms"
+              textStyle="body-h3"
+              margin="40px 0 15px"
+            >
               Changes to the Terms of Use and the Platform
             </Text>
             <Text>

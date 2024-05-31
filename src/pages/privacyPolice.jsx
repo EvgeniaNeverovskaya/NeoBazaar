@@ -20,8 +20,7 @@ const PrivacyPolice = () => {
             </Text>
             <Text>
               This privacy policy and personal data processing is compiled in
-              accordance with the requirements of the Law of the Republic of
-              Belarus dated 07/05/2021 No. 99-H "On Personal Data Protection"
+              accordance with the requirements of the Law "On Personal Data Protection"
               (further referred to as the Personal Data Law) and defines the
               procedure for processing personal data and measures to ensure the
               security of personal data taken by NeoBazaar (further referred to
@@ -38,7 +37,7 @@ const PrivacyPolice = () => {
               1.2. This Operator's policy regarding the processing of personal
               data (hereinafter referred to as the Policy) applies to all
               information that the Operator can receive about visitors to the
-              website <ChakraLink as={ReactRouterLink} to="/"> http://www.neobazaar.com. </ChakraLink>
+              website <ChakraLink as={ReactRouterLink} to="/"> https://neobazaar1-20185008ae61.herokuapp.com/. </ChakraLink>
             </Text>
             <Text mt={4}>
               1.3. The User's use of the site means acceptance of this Privacy
@@ -65,7 +64,7 @@ const PrivacyPolice = () => {
               2.3. Website, Website - a set of graphic and information
               materials, as well as computer programs and databases that ensure
               their availability on the Internet at a network address
-              <ChakraLink as={ReactRouterLink} to="/"> http://www.neobazaar.com. </ChakraLink>
+              <ChakraLink as={ReactRouterLink} to="/"> https://neobazaar1-20185008ae61.herokuapp.com/. </ChakraLink>
             </Text>
             <Text mt={4}>
               2.4. Personal data information system – a set of personal data
@@ -91,7 +90,7 @@ const PrivacyPolice = () => {
             <Text mt={4}>
               2.8. Personal data – any information related directly or
               indirectly to a specific or identifiable User of the website
-              <ChakraLink as={ReactRouterLink} to="/"> http://www.neobazaar.com. </ChakraLink>
+              <ChakraLink as={ReactRouterLink} to="/"> https://neobazaar1-20185008ae61.herokuapp.com/. </ChakraLink>
             </Text>
             <Text mt={4}>
               2.9. Personal data authorized by the subject of personal data for
@@ -103,7 +102,7 @@ const PrivacyPolice = () => {
               referred to as personal data authorized for distribution).
             </Text>
             <Text mt={4}>
-              2.10. User – any visitor to the website <ChakraLink as={ReactRouterLink} to="/"> http://www.neobazaar.com
+              2.10. User – any visitor to the website <ChakraLink as={ReactRouterLink} to="/"> https://neobazaar1-20185008ae61.herokuapp.com/
  </ChakraLink>            </Text>
             <Text mt={4}>
               2.11. Provision of personal data – actions aimed at disclosing
@@ -138,7 +137,7 @@ const PrivacyPolice = () => {
               <Text mt={4}>
               3.2. The Operator is obliged to:</Text>
               <Text mt={4}>– to provide the subject of personal data, at his request, with information concerning the processing of his personal data;</Text>
-              <Text mt={4}>– organize the processing of personal data in accordance with the procedure established by the current legislation of the Republic of Belarus;</Text>
+              <Text mt={4}>– organize the processing of personal data in accordance with the procedure established by the current legislation;</Text>
               <Text mt={4}>– respond to requests and requests from personal data subjects and their legal representatives in accordance with the requirements of the Law on Personal Data;</Text>
               <Text mt={4}>– to inform the authorized body for the protection of the rights of personal data subjects at the request of this body of the necessary information within 10 days from the date of receipt of such a request;</Text>
               <Text mt={4}>– to publish or otherwise provide unrestricted access to this Policy regarding the processing of personal data;</Text>
@@ -158,20 +157,20 @@ const PrivacyPolice = () => {
               <Text mt={4}>– to put forward a condition of prior consent when processing personal data in order to promote goods, works and services on the market;</Text>
               <Text mt={4}>– to revoke consent to the processing of personal data, as well as to send a request to terminate the processing of personal data;</Text>
               <Text mt={4}>– to appeal to the authorized body for the protection of the rights of personal data subjects or in court against illegal actions or inaction of the Operator during the processing of his personal data;</Text>
-              <Text mt={4}>– to exercise other rights provided for by the legislation of the Republic of Belarus.            </Text>
+              <Text mt={4}>– to exercise other rights provided for by the legislation.            </Text>
               <Text mt={4}>
               4.2. The subjects of personal data are obliged to: </Text> 
               <Text mt={4}>– provide the Operator with reliable data about themselves;</Text> 
               <Text mt={4}>– inform the Operator about the clarification (updating, modification) of their personal data.   </Text>            
               <Text mt={4}>
-              4.3. Persons who have provided the Operator with false information about themselves or information about another personal data subject without the latter's consent are liable in accordance with the legislation of the Republic of Belarus.              </Text>
+              4.3. Persons who have provided the Operator with false information about themselves or information about another personal data subject without the latter's consent are liable in accordance with the legislation.              </Text>
 
               <Text textStyle='body-h3' m="40px 0 20px">
               5. The list of personal data for the processing of which the consent of the personal data subject is given            </Text>
               <Text mt={4}>
               5.1. This Privacy Policy establishes the obligations of the Operator to non-disclosure and ensure the protection of the confidentiality of personal data that the User provides at the request of the Operator.              </Text>
               <Text mt={4}>
-              5.2. The personal data authorized for processing under this Privacy Policy is provided by the User by filling out registration forms on the Website <ChakraLink as={ReactRouterLink} to="/"> http://www.neobazaar.com. </ChakraLink>              </Text>
+              5.2. The personal data authorized for processing under this Privacy Policy is provided by the User by filling out registration forms on the Website <ChakraLink as={ReactRouterLink} to="/"> https://neobazaar1-20185008ae61.herokuapp.com/. </ChakraLink>              </Text>
               <Text mt={4}>
               5.3. Registration data includes the following information: </Text> 
               <Text mt={4}>– User Name; </Text> 
@@ -227,7 +226,7 @@ const PrivacyPolice = () => {
               <Text mt={4}>– processing and receiving online payments;</Text>
               <Text mt={4}>– formation of statistical reports, conducting research;</Text>
               <Text mt={4}>– implementation of economic activities;</Text>
-              <Text mt={4}>– exercise of other powers and duties assigned to the Operator by the legislation of the Republic of Belarus.
+              <Text mt={4}>– exercise of other powers and duties assigned to the Operator by the legislation.
               </Text>
 
               <Text textStyle='body-h3' m="40px 0 20px">
@@ -236,9 +235,9 @@ const PrivacyPolice = () => {
               <Text mt={4}>
               8.1. The processing of personal data is carried out with the consent of the personal data subject to the processing of his personal data.              </Text>
               <Text mt={4}>
-              8.2. The processing of personal data is necessary to achieve the goals provided for by law, to carry out the functions, powers and duties assigned to the operator by the legislation of the Republic of Belarus.              </Text>
+              8.2. The processing of personal data is necessary to achieve the goals provided for by law, to carry out the functions, powers and duties assigned to the operator by the legislation.              </Text>
               <Text mt={4}>
-              8.3. The processing of personal data is necessary for the administration of justice, the execution of a judicial act, an act of another body or official to be executed in accordance with the legislation of the Republic of Belarus on enforcement proceedings.              </Text>
+              8.3. The processing of personal data is necessary for the administration of justice, the execution of a judicial act, an act of another body or official to be executed in accordance with the legislation on enforcement proceedings.              </Text>
               <Text mt={4}>
               8.4. The processing of personal data is necessary for the performance of an agreement to which the personal data subject is a party or beneficiary or guarantor, as well as for the conclusion of an agreement on the initiative of the personal data subject or an agreement under which the personal data subject will be the beneficiary or guarantor.              </Text>
               <Text mt={4}>
@@ -264,7 +263,7 @@ const PrivacyPolice = () => {
               <Text mt={4}>
               9.6. All information collected by third-party services, including payment systems, means of communication and other service providers, is stored and processed by these persons (Operators) in accordance with their User Agreement and Privacy Policy. The subject of personal data and/or with the specified documents. The Operator is not responsible for the actions of third parties, including the service providers specified in this paragraph.              </Text>
               <Text mt={4}>
-              9.7. The prohibitions established by the subject of personal data on the transfer (except for granting access), as well as on the processing or conditions of processing (except for obtaining access) of personal data allowed for distribution, do not apply in cases of processing personal data in the state, public and other public interests defined by the legislation of the Republic of Belarus.              </Text>
+              9.7. The prohibitions established by the subject of personal data on the transfer (except for granting access), as well as on the processing or conditions of processing (except for obtaining access) of personal data allowed for distribution, do not apply in cases of processing personal data in the state, public and other public interests defined by the legislation.              </Text>
               <Text mt={4}>
               9.8. The Operator ensures the confidentiality of personal data when processing personal data.              </Text>
               <Text mt={4}>
@@ -293,13 +292,13 @@ const PrivacyPolice = () => {
               12. Confidentiality of personal data
                    </Text> 
               <Text mt={4}>
-              12.1. The operator and other persons who have gained access to personal data are obliged not to disclose or distribute personal data to third parties without the consent of the personal data subject, unless otherwise provided for by the legislation of the Republic of Belarus.              </Text>
+              12.1. The operator and other persons who have gained access to personal data are obliged not to disclose or distribute personal data to third parties without the consent of the personal data subject, unless otherwise provided for by the legislation.              </Text>
               <Text mt={4}>
 
               <Text textStyle='body-h3' m="40px 0 20px">
               13. Final provisions
                    </Text> 
-                   13.1. Issues related to the processing of personal data that are not fixed in this Policy are regulated by the legislation of the Republic of Belarus.              </Text>
+                   13.1. Issues related to the processing of personal data that are not fixed in this Policy are regulated by the legislation.              </Text>
               <Text mt={4}>
               13.2. If any provision of the Policy is found to be contrary to the law, the remaining provisions that comply with the law remain in force and are valid, and any invalid provision will be considered deleted/amended to the extent necessary to ensure its compliance with the law.              </Text>
               <Text mt={4}>
@@ -307,7 +306,7 @@ const PrivacyPolice = () => {
               <Text mt={4}>
               13.4. This document will reflect any changes to the Operator's personal data processing policy. The policy is valid indefinitely until it is replaced by a new version.               </Text>
               <Text mt={4}>
-              13.5. The current version of the Policy is available on the website <ChakraLink as={ReactRouterLink} to="/"> http://www.neobazaar.com. </ChakraLink>
+              13.5. The current version of the Policy is available on the website <ChakraLink as={ReactRouterLink} to="/"> https://neobazaar1-20185008ae61.herokuapp.com/. </ChakraLink>
               </Text>
 </Text>
           
