@@ -1,18 +1,19 @@
+// ModalDialog.js
 import React from "react";
 import {
   Modal,
   ModalOverlay,
   ModalContent,
-  ModalHeader,
-  ModalBody,
-  ModalFooter,
+  Flex,
   ModalCloseButton,
   Box,
   useDisclosure,
 } from "@chakra-ui/react";
 
-const ModalDialog = ({ children, openButton }) => {
-  const { isOpen, onOpen, onClose } = useDisclosure();
+const ModalDialog = ({ children, openButton, onClose }) => {
+  const { isOpen, onOpen, onClose: internalOnClose } = useDisclosure();
+  const handleClose = onClose || internalOnClose; // Используйте переданный onClose или внутренний onClose
+
   const customOverlay = (
     <ModalOverlay bg='rgba(0, 0, 0, 0.75)' backdropFilter='blur(10px)' />
   );
@@ -22,13 +23,21 @@ const ModalDialog = ({ children, openButton }) => {
       <Box onClick={onOpen}>{openButton}</Box>
       <Modal
         isOpen={isOpen}
-        onClose={onClose}
+        onClose={handleClose}
         motionPreset='scale'
         size='xl'
         isCentered>
         {customOverlay}
         <ModalContent maxW="container.xl" height="260px">
-          {children}
+          <Flex
+            direction="column"
+            justifyContent="center"
+            alignItems="center"
+            height="100%"
+            p="20px"
+          >
+            {React.cloneElement(children, { onClose: handleClose })}
+          </Flex>
           <ModalCloseButton />
         </ModalContent>
       </Modal>
