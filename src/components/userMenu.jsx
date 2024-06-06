@@ -43,15 +43,9 @@ const UserMenu = () => {
         </ChakraLink>
         <ChakraLink
           as={ReactRouterLink}
-          to='/my-purchases'
+          to='/cart'
           style={{ textDecoration: "none" }}>
           <Button sx={buttonStyle}>Cart</Button>
-        </ChakraLink>
-        <ChakraLink
-          as={ReactRouterLink}
-          to='/settings'
-          style={{ textDecoration: "none" }}>
-          <Button sx={buttonStyle}>Settings</Button>
         </ChakraLink>
         <ChakraLink
           as={ReactRouterLink}
