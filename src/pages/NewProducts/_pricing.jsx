@@ -6,7 +6,7 @@ import {
   Text,
   FormControl,
   Input,
-  Select,
+  InputGroup, InputLeftElement,
   Switch,
 } from "@chakra-ui/react";
 import InputMask from "react-input-mask";
@@ -24,7 +24,6 @@ const Pricing = ({
 }) => {
   const isErrorPrici = priciError && amount === "";
 
-  const currencies = ["USD", "EUR", "RUB", "BYN"];
 
   const handleCurrencyChange = (event) => {
     setCurrency(event.target.value);
@@ -42,23 +41,15 @@ const Pricing = ({
       </Text>
 
       <Flex direction='column' alignItems='center' w='100%' gap='25px'>
-      <FormControl id='currency-product'>
-          <Select
-            value={currency}
-            onChange={handleCurrencyChange}
-            bg='#fff'
-            color='#7E88A4'
-            placeholder='Currency'
-            >
-            {currencies.map((cur) => (
-              <option key={cur} value={cur}>
-                {cur}
-              </option>
-            ))}
-          </Select>
-        </FormControl>
         <FormControl id='pricing-product' isInvalid={isErrorPrici}>
-          <Input
+          <InputGroup>
+          <InputLeftElement
+          pointerEvents='none'
+          color='#000'
+          fontSize='18px'
+          children='$'
+        />
+          <Input            
             as={InputMask}
             mask='**.**'
             maskChar={null}
@@ -69,6 +60,7 @@ const Pricing = ({
             bg='#fff'
             required
           />
+          </InputGroup>
         </FormControl>
        
       </Flex>

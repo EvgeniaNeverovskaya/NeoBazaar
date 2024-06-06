@@ -53,7 +53,7 @@ const ContentDescription = ({
           type='text'
           name='content'
           placeholder='Provide important information about the product (file format, size, number of pages, release date, number of license users, etc.).'
-          maxLength='100'
+          maxLength='200'
           minH='133px'
           bg='#fff'
           required
@@ -63,7 +63,7 @@ const ContentDescription = ({
 
         {!isErrorContent ? (
           <FormHelperText textAlign='end' color='#7E88A4' padding='0 20px'>
-            {numberOfCharactersInTheContentField} of 100
+            {numberOfCharactersInTheContentField} of 200
           </FormHelperText>
         ) : (
           <FormErrorMessage>Name is required.</FormErrorMessage>
@@ -74,7 +74,7 @@ const ContentDescription = ({
           type='text'
           name='describe-product'
           placeholder='Describe Your Product'
-          maxLength='300'
+          maxLength='500'
           minH='147px'
           bg='#fff'
           required
@@ -84,7 +84,7 @@ const ContentDescription = ({
 
         {!isErrorDescribe ? (
           <FormHelperText textAlign='end' color='#7E88A4' padding='0 20px'>
-            {numberOfCharactersInTheDescribeProductField} of 300
+            {numberOfCharactersInTheDescribeProductField} of 500
           </FormHelperText>
         ) : (
           <FormErrorMessage>Name is required.</FormErrorMessage>
