@@ -6,7 +6,7 @@ import { BsTrash } from "react-icons/bs";
 import ModalDialog from "../../components/modalDialog";
 
 const CartItem = ({ product, onSelect, isSelected }) => {
-  const { id, name, userName, price, photo, email, currency } = product;
+  const { id, name, userName, price, photo, email } = product;
 
   const handleSelectChange = () => {
     onSelect(id, !isSelected);
@@ -92,7 +92,6 @@ const CartItem = ({ product, onSelect, isSelected }) => {
                 fontWeight='400'
                 mb='30px'
                 textAlign='center'>
-                {" "}
                 Do you really want to delete the product from the shopping cart?
               </Text>
               <Flex align='center' justify='center' gap={10}>
@@ -141,8 +140,8 @@ const CartItem = ({ product, onSelect, isSelected }) => {
               </Text>
             </Box>
           </ModalDialog>
-          <Text>
-            {currency} {price}
+          <Text sx={{textWrap:'nowrap'}}>
+            $ {price}
           </Text>
         </Flex>
       </Box>
