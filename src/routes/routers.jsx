@@ -1,16 +1,18 @@
-import { React, useLayoutEffect } from "react";
+import React, { useLayoutEffect } from "react";
+import { Route, Routes } from "react-router-dom";
 import Home from "../pages/Home/home";
 import PrivacyPolice from "../pages/privacyPolice";
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import TermsOfService from "../pages/termsOfService";
 import LogIn from "../pages/logIn";
-import { useLocation } from "react-router-dom";
 import SignUp from "../pages/signUp";
 import ProductCatalog from "../pages/CardList/productCatalog";
 import Products from "../pages/products";
 import NewProducts from "../pages/NewProducts/newProducts";
 import ResetPasswords from "../pages/resetPasswords";
 import Cart from "../pages/Cart/cart";
+import { useLocation } from "react-router-dom";
+import { AuthProvider } from "../components/authContext";
+import PrivateRoute from "./privateRouters";
 
 const ScrollToTop = () => {
   const { pathname } = useLocation();
@@ -23,7 +25,7 @@ const ScrollToTop = () => {
 };
 
 const AllRoutes = () => (
-  <Router>
+  <AuthProvider>
     <ScrollToTop />
     <Routes>
       <Route path='/' element={<Home />} />
@@ -33,12 +35,11 @@ const AllRoutes = () => (
       <Route path='/sign-up' element={<SignUp />} />
       <Route path='/reset' element={<ResetPasswords />} />
       <Route path='/:category' element={<ProductCatalog />} />
-      <Route path='/products' element={<Products/>} />
-      <Route path='/products/new' element={<NewProducts/>} />
-      <Route path='/cart' element={<Cart/>} />
+      <Route path='/products' element={<PrivateRoute element={Products} />} />
+      <Route path='/products/new' element={<PrivateRoute element={NewProducts} />} />
+      <Route path='/cart' element={<PrivateRoute element={Cart} />} />
     </Routes>
-  </Router>
+  </AuthProvider>
 );
-
 
 export default AllRoutes;

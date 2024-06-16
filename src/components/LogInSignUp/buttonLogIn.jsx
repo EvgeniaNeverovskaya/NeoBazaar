@@ -10,13 +10,13 @@ const ButtonLogIn = () => {
         p='10px 20px'
         color='#fff'
         width='100%' 
+        mt='30px'
         borderRadius='10px'
         fontFamily= "Arial"
         fontSize= "18px"
         fontWeight= "700"
         lineHeight= "20px"
         _hover={{ bg: "fuchsia" }}
-        m='15px 0'
         >
         Log in
       </Button>
