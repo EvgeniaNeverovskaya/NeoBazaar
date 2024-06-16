@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import UserMenu from "../../components/userMenu";
+import axios from 'axios';
 import {
   Box,
   Container,
@@ -19,13 +20,13 @@ const NewProducts = () => {
   const [status, setStatus] = useState("draft");
   const [name, setName] = useState("");
   const [content, setContent] = useState("");
-  const [describeProduct, setDescribeProduct] = useState("");
+  const [description, setDescription] = useState("");
   const [id, setId] = useState("1"); //для установки первичного состояния запрос на сервер нужен будет и значение +1
   const [date, setDate] = useState(new Date().toLocaleDateString());
   const [category, setCategory] = useState("");
   const [isCheckedSettings, setIsCheckedSettings] = useState(false);
   const [isCheckedPracing, setIsCheckedPracing] = useState(false);
-  const [amount, setAmount] = useState("");
+  const [price, setPrice] = useState("");
   const [currency, setCurrency] = useState("USD");
   const [time, setTime] = useState("");
   const [photos, setPhotos] = useState([]);
@@ -35,41 +36,42 @@ const NewProducts = () => {
 
   const [nameError, setNameError] = useState(false);
   const [contentError, setContentError] = useState(false);
-  const [describeProductError, setDescribeProductError] = useState(false);
+  const [descriptionError,setDescriptionError] = useState(false);
   const [priciError, setPriciError] = useState(false);
   const [timeError, setTimeError] = useState(false);
   const [categoryError, setCategoryError] = useState(false);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    setNameError(true);
-    setContentError(true);
-    setDescribeProductError(true);
-    setPriciError(true);
-    setTimeError(true);
-    setCategoryError(true);
+  
+    // Проверка наличия всех обязательных полей
     if (
       !name.trim() ||
       !content.trim() ||
-      !describeProduct.trim() ||
-      !amount.trim() ||
+      !description.trim() ||
+      !price.trim() ||
       !time.trim() ||
       !category.trim()
     ) {
+      setNameError(true);
+      setContentError(true);
+      setDescription(true);
+      setPriciError(true);
+      setTimeError(true);
+      setCategoryError(true);
       return;
     }
-
-
+  
     const formData = {
       id,
       status,
       name,
       content,
-      describeProduct,
+      description,
       category,
       isCheckedSettings,
       isCheckedPracing,
-      amount,
+      price,
       currency,
       time,
       date,
@@ -77,31 +79,47 @@ const NewProducts = () => {
       limit,
       file,
     };
-
-    console.log(formData);
-
-    setName(""); 
-    setContent(""); 
-    setDescribeProduct(""); 
-    setId("1"); 
-    setDate(new Date().toLocaleDateString()); 
-    setCategory(""); 
-    setIsCheckedSettings(false); 
-    setIsCheckedPracing(false); 
-    setAmount(""); 
-    setCurrency("USD"); 
-    setTime(""); 
-    setPhotos([]);
-    setLimit("") 
-    setFile(null)
   
-    setNameError(false);
-    setContentError(false);
-    setDescribeProductError(false);
-    setPriciError(false);
-    setTimeError(false);
-    setCategoryError(false);
+    try {
+      // Отправляем запрос на сервер
+      const response = await axios.post('https://neobazaar-ee1c625c2e80.herokuapp.com/products', formData, {
+        headers: {
+          'Content-Type': 'application/json',
+          // Добавьте любые другие заголовки, необходимые для вашего API
+        },
+      });
+  
+      // Обработка успешного ответа, если нужно
+      console.log('Response:', response.data);
+  
+      // Очистка состояния после успешного сохранения
+      setName("");
+      setContent("");
+      setDescription("");
+      setId("1");
+      setDate(new Date().toLocaleDateString());
+      setCategory("");
+      setIsCheckedSettings(false);
+      setIsCheckedPracing(false);
+      setPrice("");
+      setCurrency("USD");
+      setTime("");
+      setPhotos([]);
+      setLimit("");
+      setFile(null);
+  
+      setNameError(false);
+      setContentError(false);
+      descriptionError(false);
+      setPriciError(false);
+      setTimeError(false);
+      setCategoryError(false);
+    } catch (error) {
+      console.error('Error saving product:', error);
+      // Здесь можно добавить обработку ошибок, если нужно
+    }
   };
+  
 
   return (
     <>
@@ -124,14 +142,14 @@ const NewProducts = () => {
             <Flex flexDirection='column' gap='50px'>
               <ContentDescription
                 contentError={contentError} 
-                describeProductError={describeProductError}
+                descriptionError={descriptionError}
                 nameError={nameError}
                 name={name}
                 setName={setName}
                 content={content}
                 setContent={setContent}
-                describeProduct={describeProduct}
-                setDescribeProduct={setDescribeProduct}
+                description={description}
+                setDescription={setDescription}
               />
               <CategorySelection
                 categoryError={categoryError}
@@ -146,8 +164,8 @@ const NewProducts = () => {
               <Pricing
                 priciError={priciError}
                 setPriciError={setPriciError}
-                amount={amount}
-                setAmount={setAmount}
+                price={price}
+                setPrice={setPrice}
                 currency={currency}
                 setCurrency={setCurrency}
                 isCheckedPracing={isCheckedPracing}

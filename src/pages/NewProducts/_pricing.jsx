@@ -14,24 +14,24 @@ import InputMask from "react-input-mask";
 
 
 const Pricing = ({
-  amount,
-  setAmount,
+  price,
+  setPrice,
   currency,
   setCurrency,
   isCheckedPracing,
   setIsCheckedPracing,
   priciError,
 }) => {
-  const isErrorPrici = priciError && amount === "";
+  const isErrorPrici = priciError && price === "";
 
 
   const handleCurrencyChange = (event) => {
     setCurrency(event.target.value);
   };
 
-  const handleAmountChange = (event) => {
+  const handlePriceChange = (event) => {
     let value = event.target.value.replace(/[^0-9]/g, "");
-    setAmount(value);
+    setPrice(value);
   };
 
   return (
@@ -55,8 +55,8 @@ const Pricing = ({
             maskChar={null}
             name='pricing-product'
             placeholder='Price'
-            value={amount}
-            onChange={handleAmountChange}
+            value={price}
+            onChange={handlePriceChange}
             bg='#fff'
             required
           />

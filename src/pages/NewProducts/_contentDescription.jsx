@@ -13,19 +13,19 @@ const ContentDescription = ({
   setName,
   content,
   setContent,
-  describeProduct,
-  setDescribeProduct,
+  description,
+  setDescription,
   nameError,
   contentError,
-  describeProductError,
+  descriptionError,
 }) => {
   const isErrorName = nameError && name === "";
   const isErrorContent = contentError && content === "";
-  const isErrorDescribe = describeProductError && describeProduct === "";
+  const isErrorDescribe = descriptionError && description === "";
 
   const numberOfCharactersInTheNameField = name.length;
   const numberOfCharactersInTheContentField = content.length;
-  const numberOfCharactersInTheDescribeProductField = describeProduct.length;
+  const numberOfCharactersInTheDescribeProductField = description.length;
 
   return (
     <Flex flexDirection='column' gap='50px'>
@@ -78,8 +78,8 @@ const ContentDescription = ({
           minH='147px'
           bg='#fff'
           required
-          value={describeProduct}
-          onChange={(e) => setDescribeProduct(e.target.value)}
+          value={description}
+          onChange={(e) => setDescription(e.target.value)}
         />
 
         {!isErrorDescribe ? (
