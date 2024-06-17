@@ -19,7 +19,7 @@ export const AuthProvider = ({ children }) => {
       setIsLoggedIn(true);
       setUser(JSON.parse(userData));
     }
-    setIsLoading(false);  // Переносим сюда, чтобы всегда устанавливало значение
+    setIsLoading(false);  
   }, []);
 
   const handleLogout = async () => {
@@ -48,7 +48,7 @@ export const AuthProvider = ({ children }) => {
     setIsLoggedIn,
     setUser,
     handleLogout,
-    isLoading  // Добавляем в значение контекста
+    isLoading  
   };
 
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
