@@ -50,6 +50,8 @@ const FormSignUp = () => {
   const [showPassword, setShowPassword] = useState(false);
   const navigate = useNavigate();
   const { setIsLoggedIn, setUser } = useContext(AuthContext);
+  const [errorMessage, setErrorMessage] = useState("");
+
 
   const togglePasswordVisibility = () => {
     setShowPassword(!showPassword);
@@ -88,7 +90,7 @@ const FormSignUp = () => {
         navigate("/");
       }
     } catch (error) {
-      console.error("Registration failed:", error);
+      setErrorMessage(error.response.data.error);
     }
   };
 
@@ -113,16 +115,7 @@ const FormSignUp = () => {
         </FormControl>
 
         <FormControl m='0 0 15px' isInvalid={!!errors.email}>
-          <Tooltip hasArrow  bg='fuchsia'
-            label={
-              <span>
-                Supports Latin characters, numbers, ".", "-", "_" @ (Latin
-                characters, numbers "-") . (Latin characters) <br/> Length: (1-64) @
-                (1-63) . (2-63), max 192 characters
-              </span>
-            }
-            aria-label='email-tooltip'>
-            <Input
+                     <Input
               id='email'
               type='email'
               placeholder='E-mail'
@@ -143,7 +136,6 @@ const FormSignUp = () => {
                 },
               })}
             />
-          </Tooltip>
           <FormErrorMessage>
             {errors.email && errors.email.message}
           </FormErrorMessage>
@@ -151,11 +143,10 @@ const FormSignUp = () => {
 
         <FormControl isInvalid={!!errors.password}>
           <InputGroup>
-            <Tooltip hasArrow  bg='fuchsia'
+            <Tooltip placement='right' hasArrow  bg='fuchsia'
               label={
                 <span>
-                  Password requirements: Minimum 8, maximum 30 characters. Supports Latin letters, numbers, special characters "! ? - _ .". Must include at least one digit, one lowercase letter, and one uppercase letter.
-                </span>
+From 8 to 30 characters. Latin letters, numbers and symbols: !, ?, -, _, . Min 1 digit, 1 letter in lowercase and  1 letter in uppercase                </span>
               }
               aria-label='email-tooltip'>
               <Input
@@ -228,6 +219,11 @@ const FormSignUp = () => {
             {errors.passwordConfirmation?.message}
           </FormErrorMessage>
         </FormControl>
+        {errorMessage && (
+          <Box color='red'm='10px 0 -20px' textStyle='body-small'>
+            {errorMessage}
+          </Box>
+        )}
 
         <Button
           isDisabled={!isChecked}

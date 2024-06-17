@@ -41,14 +41,14 @@ const ResetPasswords = () => {
               </Text>
             </Box>
             <form onSubmit={handleSubmit(onSubmit)}>
-              <FormControl id="resetPasswords" isInvalid={!!errors.resetPasswords}>
+              <FormControl id="Email" isInvalid={!!errors.email}>
                 <Input
-                  id="resetPasswords"
+                  id="Email"
                   type="text"
                   placeholder="Email"
                   sx={inputStyle}
                   mt='50px'
-                  {...register("resetPasswords", {
+                  {...register("email", {
                     required: "Email is required.",
                     pattern: {
                         value: /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,63}$/,
@@ -60,7 +60,7 @@ const ResetPasswords = () => {
                     },
                   })}
                 />
-                <FormErrorMessage>{errors.resetPasswords?.message}</FormErrorMessage>
+                <FormErrorMessage>{errors.email?.message}</FormErrorMessage>
               </FormControl>
               <Button
                 width="100%"

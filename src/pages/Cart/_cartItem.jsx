@@ -64,7 +64,7 @@ const CartItem = ({ product, onSelect, isSelected }) => {
           direction='column'
           justify='space-between'
           padding='0 20px'
-          overflow='clip'
+          overflow='hidden'
           maxW='550px'>
           <Text>{name}</Text>
           <Text>{userName}</Text>
