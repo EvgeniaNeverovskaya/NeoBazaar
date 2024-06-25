@@ -52,7 +52,6 @@ const FormSignUp = () => {
   const { setIsLoggedIn, setUser } = useContext(AuthContext);
   const [errorMessage, setErrorMessage] = useState("");
 
-
   const togglePasswordVisibility = () => {
     setShowPassword(!showPassword);
   };
@@ -103,39 +102,36 @@ const FormSignUp = () => {
             type='text'
             placeholder='User Name'
             sx={inputStyle}
+            maxLength='30'
             {...register("username", {
               required: "Username is required.",
-              maxLength: {
-                value: 30,
-                message: "Username cannot exceed 30 characters.",
-              },
             })}
           />
           <FormErrorMessage>{errors.username?.message}</FormErrorMessage>
         </FormControl>
 
         <FormControl m='0 0 15px' isInvalid={!!errors.email}>
-                     <Input
-              id='email'
-              type='email'
-              placeholder='E-mail'
-              autoComplete='email'
-              sx={inputStyle}
-              {...register("email", {
-                required: "Email is required.",
-                maxLength: {
-                  value: 192,
-                  message: "Email cannot exceed 192 characters.",
-                },
+          <Input
+            id='email'
+            type='email'
+            placeholder='E-mail'
+            autoComplete='email'
+            sx={inputStyle}
+            {...register("email", {
+              required: "Email is required.",
+              maxLength: {
+                value: 192,
+                message: "Email cannot exceed 192 characters.",
+              },
 
-                pattern: {
-                  value:
-                    /^[a-zA-Z0-9._-]{1,64}@[a-zA-Z0-9-]{1,63}\.[a-zA-Z]{2,63}$/,
-                  message:
-                    "Please enter a valid email address (letters, numbers, ., -, _ only).",
-                },
-              })}
-            />
+              pattern: {
+                value:
+                  /^[a-zA-Z0-9._-]{1,64}@[a-zA-Z0-9-]{1,63}\.[a-zA-Z]{2,63}$/,
+                message:
+                  "Please enter a valid email address (letters, numbers, ., -, _ only).",
+              },
+            })}
+          />
           <FormErrorMessage>
             {errors.email && errors.email.message}
           </FormErrorMessage>
@@ -143,10 +139,16 @@ const FormSignUp = () => {
 
         <FormControl isInvalid={!!errors.password}>
           <InputGroup>
-            <Tooltip placement='right' hasArrow  bg='fuchsia'
+            <Tooltip
+              placement='right'
+              hasArrow
+              bg='fuchsia'
               label={
                 <span>
-From 8 to 30 characters. Latin letters, numbers and symbols: !, ?, -, _, . Min 1 digit, 1 letter in lowercase and  1 letter in uppercase                </span>
+                  From 8 to 30 characters. Latin letters, numbers and symbols:
+                  !, ?, -, _, . Min 1 digit, 1 letter in lowercase and 1 letter
+                  in uppercase{" "}
+                </span>
               }
               aria-label='email-tooltip'>
               <Input
@@ -220,7 +222,7 @@ From 8 to 30 characters. Latin letters, numbers and symbols: !, ?, -, _, . Min 1
           </FormErrorMessage>
         </FormControl>
         {errorMessage && (
-          <Box color='red'm='10px 0 -20px' textStyle='body-small'>
+          <Box color='red' m='10px 0 -20px' textStyle='body-small'>
             {errorMessage}
           </Box>
         )}

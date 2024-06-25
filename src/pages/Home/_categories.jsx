@@ -17,7 +17,7 @@ import Paint from "../../image/Categories/paint.gif";
 import Photo from "../../image/Categories/photo.gif";
 import Sport from "../../image/Categories/sport.gif";
 import Design from "../../image/Categories/Design.gif";
-import ButtonStartSelling from "../../components/buttonStartSelling";
+import ButtonStartSelling from "../../components/buttonStartTrading";
 import { Box,Link as ChakraLink } from "@chakra-ui/react";
 import { Link as ReactRouterLink } from "react-router-dom";
 
@@ -42,9 +42,8 @@ const Categories = () => {
   return (
     <Box as='section' >
       <Container maxW='8xl' margin="50px auto" padding='0 30px'>
-        <ButtonStartSelling />
         <Center>
-          <Text as="h2" fontSize='30px' m="80px 0 50px" lineHeight="34.5px" textAlign="center" fontFamily="Arial" fontWeight="400">
+          <Text as="h2" fontSize='30px' m="0 0 50px" lineHeight="34.5px" textAlign="center" fontFamily="Arial" fontWeight="400">
             Looking for inspiration on what you can sell?{" "}
             <Divider orientation='vertical' />
             Discover the best-selling products and creators

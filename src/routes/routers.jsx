@@ -14,6 +14,7 @@ import { useLocation } from "react-router-dom";
 import { AuthProvider } from "../components/authContext";
 import PrivateRoute from "./privateRouters";
 import NewPasswords from "../pages/newPasswords";
+import AboutUs from "../pages/aboutUs";
 
 const ScrollToTop = () => {
   const { pathname } = useLocation();
@@ -30,6 +31,7 @@ const AllRoutes = () => (
     <ScrollToTop />
     <Routes>
       <Route path='/' element={<Home />} />
+      <Route path='/about-us' element={<AboutUs />} />
       <Route path='/privacy-policy' element={<PrivacyPolice />} />
       <Route path='/terms-of-service' element={<TermsOfService />} />
       <Route path='/log-in' element={<LogIn />} />
@@ -38,7 +40,10 @@ const AllRoutes = () => (
       <Route path='/new-passwords' element={<NewPasswords />} />
       <Route path='/:category' element={<ProductCatalog />} />
       <Route path='/products' element={<PrivateRoute element={Products} />} />
-      <Route path='/products/new' element={<PrivateRoute element={NewProducts} />} />
+      <Route
+        path='/products/new'
+        element={<PrivateRoute element={NewProducts} />}
+      />
       <Route path='/cart' element={<PrivateRoute element={Cart} />} />
     </Routes>
   </AuthProvider>

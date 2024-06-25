@@ -39,7 +39,7 @@ const UserMenu = () => {
           as={ReactRouterLink}
           to='/products'
           style={{ textDecoration: "none" }}>
-          <Button sx={buttonStyle}>My Products</Button>
+          <Button sx={buttonStyle}>MyProducts</Button>
         </ChakraLink>
         <ChakraLink
           as={ReactRouterLink}

@@ -114,7 +114,7 @@ const ProductCatalog = () => {
     <Box bg={backgroundColor} display="flex" flexDirection="column" minHeight="100vh">
       <Box style={{ position: 'sticky', top: 0 }}>
         <Header />
-        <Box bg={filterBackgrounds} marginTop='50px' maxH='270px'>
+        <Box bg={filterBackgrounds} marginTop='80px' maxH='270px'>
           <Container maxW='8xl' padding='0 30px'>
             <Box>
               <Search onSearch={handleSearch} />

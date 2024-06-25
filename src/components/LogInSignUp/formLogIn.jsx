@@ -13,13 +13,13 @@ import {
   VStack,
   Link as ChakraLink,
   Flex,
-  Checkbox,
-  Button,
+  FormErrorMessage,
 } from "@chakra-ui/react";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import Cookies from "js-cookie";
 import ButtonLogIn from "./buttonLogIn";
 import { AuthContext } from "../authContext";
+import { inputStyle } from "./formSignUp";
 
 const FormLogIn = () => {
   const {
@@ -73,30 +73,36 @@ const FormLogIn = () => {
   };
 
   return (
-    <Box as='form' onSubmit={handleSubmit(onSubmit)}>
+    <Box as='form' onSubmit={handleSubmit(onSubmit)} noValidate>
       <VStack alignItems='flex-start' gap='0'>
-        <FormControl m='0 0 15px'>
+        <FormControl m='0 0 15px' isInvalid={!!errors.email}>
           <FormLabel htmlFor='email' />
           <Input
             id='email'
             type='email'
             placeholder='E-mail'
             autoComplete='email'
-            {...register("email", { required: true })}
-            sx={{
-              color: "black",
-              bg: "white",
-              border: "solid white 2px",
-              "&:hover": {
-                borderColor: "black",
+            sx={inputStyle}
+            {...register("email", {
+              required: "Email is required.",
+              maxLength: {
+                value: 192,
+                message: "Email cannot exceed 192 characters.",
               },
-              "&:focus-visible": {
-                borderColor: "black",
-                boxShadow: "none",
+
+              pattern: {
+                value:
+                  /^[a-zA-Z0-9._-]{1,64}@[a-zA-Z0-9-]{1,63}\.[a-zA-Z]{2,63}$/,
+                message:
+                  "Please enter a valid email address (letters, numbers, ., -, _ only).",
               },
-            }}
+            })}
           />
+          <FormErrorMessage>
+            {errors.email && errors.email.message}
+          </FormErrorMessage>
         </FormControl>
+
         <Flex justifyContent='flex-end' width='100%'>
           <Box>
             <ChakraLink as={ReactRouterLink} to='/reset' textStyle='body-small'>
@@ -104,7 +110,7 @@ const FormLogIn = () => {
             </ChakraLink>
           </Box>
         </Flex>
-        <FormControl>
+        <FormControl isInvalid={!!errors.password}>
           <FormLabel htmlFor='password' />
           <InputGroup>
             <Input
@@ -112,19 +118,8 @@ const FormLogIn = () => {
               type={showPassword ? "text" : "password"}
               placeholder='Password'
               autoComplete='current-password'
-              {...register("password", { required: true })}
-              sx={{
-                color: "black",
-                bg: "white",
-                border: "solid white 2px",
-                "&:hover": {
-                  borderColor: "black",
-                },
-                "&:focus-visible": {
-                  borderColor: "black",
-                  boxShadow: "none",
-                },
-              }}
+              {...register("password", { required: "Password is required." })}
+              sx={inputStyle}
             />
             <InputRightElement>
               <IconButton
@@ -134,9 +129,10 @@ const FormLogIn = () => {
               />
             </InputRightElement>
           </InputGroup>
+          <FormErrorMessage>{errors.password?.message}</FormErrorMessage>
         </FormControl>
         {errorMessage && (
-          <Box color='red'm='10px 0 -20px' textStyle='body-small'>
+          <Box color='red' m='10px 0 -20px' textStyle='body-small'>
             {errorMessage}
           </Box>
         )}

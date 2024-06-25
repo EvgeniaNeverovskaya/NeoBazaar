@@ -2,6 +2,7 @@ import React from "react";
 import UserMenu from "../../components/userMenu";
 import { Link as ReactRouterLink } from "react-router-dom";
 
+
 import {
   Link as ChakraLink,
   Box,
@@ -10,10 +11,14 @@ import {
   Text,
   Button,
 } from "@chakra-ui/react";
+import Header from "../../components/Header";
 
 const Products = () => {
   return (
-    <Box >
+    <> 
+    
+    <Box>
+      <Header/>
      <UserMenu />
       <Box as='section' bg='rgba(35, 160, 148, 1)' >      
         <Container maxW='8xl' ml='330px' w='auto'>
@@ -54,6 +59,7 @@ const Products = () => {
         </Container>
       </Box>
     </Box>
+    </>
   );
 };
 

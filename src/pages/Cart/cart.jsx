@@ -5,6 +5,7 @@ import Cat from "../../image/1.jpg";
 import { Box, Container, Flex, Button } from "@chakra-ui/react";
 import CartItem from "./_cartItem";
 import PayProducts from "./_payProducts";
+import Header from "../../components/Header";
 
 const data = [
   {
