@@ -8,11 +8,11 @@ const categoryBackgroundsCard = {
   Education: '#A7D9D4',
   Audio: '#FFE999',
   Design: '#FFC9F4',
-  'Drawing-&-Painting': '#D37374',
+  'Drawing & Painting': '#D37374',
   Photography: '#FEFFA4',
   Gaming: '#FFB3A2',
-  'Fitness-&-Health': '#B0C1F3',
-  'Software-&-Development': '#D7D0CE',
+  'Fitness & Health': '#B0C1F3',
+  'Software development': '#D7D0CE',
   
 };
 

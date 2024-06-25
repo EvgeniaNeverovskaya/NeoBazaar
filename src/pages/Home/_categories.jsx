@@ -1,6 +1,6 @@
 import React from "react";
+import { useTranslation } from "react-i18next";
 import { Container,
-  Link ,
   Grid,
   GridItem,
   Text,
@@ -17,7 +17,6 @@ import Paint from "../../image/Categories/paint.gif";
 import Photo from "../../image/Categories/photo.gif";
 import Sport from "../../image/Categories/sport.gif";
 import Design from "../../image/Categories/Design.gif";
-import ButtonStartSelling from "../../components/buttonStartTrading";
 import { Box,Link as ChakraLink } from "@chakra-ui/react";
 import { Link as ReactRouterLink } from "react-router-dom";
 
@@ -39,14 +38,16 @@ const backgroundImageStyle  = {
  };
 
 const Categories = () => {
+  const { t } = useTranslation();
+
   return (
     <Box as='section' >
       <Container maxW='8xl' margin="50px auto" padding='0 30px'>
         <Center>
           <Text as="h2" fontSize='30px' m="0 0 50px" lineHeight="34.5px" textAlign="center" fontFamily="Arial" fontWeight="400">
-            Looking for inspiration on what you can sell?{" "}
+           {t('category.category_description_1')}
             <Divider orientation='vertical' />
-            Discover the best-selling products and creators
+            {t('category.category_description_2')}
           </Text>
         </Center>
      <Center>   
@@ -61,58 +62,58 @@ const Categories = () => {
       <GridItem gridArea="2 / 1 / 3 / 2" p="5px 20px 20px" gap={0}>
       <ChakraLink
           as={ReactRouterLink}
-          to='/3D' style={linkCategories}>3D →</ChakraLink >
+          to='/3D' style={linkCategories}>{t('category.3D')}</ChakraLink >
       </GridItem>
 
       <GridItem gridArea="1 / 2 / 2 / 3" bgImage={Education} {...backgroundImageStyle}  > 
       </GridItem>
       <GridItem gridArea="2 / 2 / 3 / 3" p="5px 20px 20px">
       <ChakraLink as={ReactRouterLink}
-          to='/Education' style={linkCategories}>EDUCATION →</ChakraLink >
+          to='/Education' style={linkCategories}>{t('category.education')}</ChakraLink >
       </GridItem>
 
 
       <GridItem gridArea="1 / 3 / 2 / 4" 
        bgImage={Audio} {...backgroundImageStyle} border='1px solid #e7e6e6'  />
       <GridItem gridArea="2 / 3 / 3 / 4" p="5px 20px 20px">      
-      <ChakraLink as={ReactRouterLink} to='/Audio' style={linkCategories}>AUDIO →</ChakraLink >
+      <ChakraLink as={ReactRouterLink} to='/Audio' style={linkCategories}>{t('category.audio')}</ChakraLink >
       </GridItem>
 
 
       <GridItem gridArea="3 / 1 / 4 / 2"  bgImage={Design} {...backgroundImageStyle} />
       <GridItem gridArea="4 / 1 / 5 / 2" p="5px 20px 20px">
-      <ChakraLink as={ReactRouterLink} to='/Design' style={linkCategories}>DESIGN →</ChakraLink >
+      <ChakraLink as={ReactRouterLink} to='/Design' style={linkCategories}>{t('category.design')}</ChakraLink >
       </GridItem>
 
 
       <GridItem gridArea="3 / 2 / 4 / 3"  bgImage={Paint} {...backgroundImageStyle}  />
       <GridItem gridArea="4 / 2 / 5 / 3" p="5px 20px 20px">
-      <ChakraLink as={ReactRouterLink} to='/Drawing-&-Painting' style={linkCategories}>DRAWING & PAINTING →</ChakraLink >
+      <ChakraLink as={ReactRouterLink} to='/Drawing-&-Painting' style={linkCategories}>{t('category.drawing_&_painting')}</ChakraLink >
       </GridItem>
 
 
       <GridItem gridArea="3 / 3 / 4 / 4"> 
       <Image src={Photo} objectFit="cover" alt='Photo'  borderRadius='20px'/></GridItem>
       <GridItem gridArea="4 / 3 / 5 / 4" p="5px 20px 20px">
-      <ChakraLink as={ReactRouterLink} to='/Photography' style={linkCategories}>PHOTOGRAPHY →</ChakraLink >    
+      <ChakraLink as={ReactRouterLink} to='/Photography' style={linkCategories}>{t('category.photography')}</ChakraLink >    
       </GridItem>
 
 
       <GridItem gridArea="5 / 1 / 6 / 2"  bgImage={Game} {...backgroundImageStyle}  />
       <GridItem gridArea="6 / 1 / 7 / 2" p="5px 20px 20px">
-      <ChakraLink as={ReactRouterLink} to='/Gaming' style={linkCategories}>GAMING →</ChakraLink >   
+      <ChakraLink as={ReactRouterLink} to='/Gaming' style={linkCategories}>{t('category.gaming')}</ChakraLink >   
          </GridItem>
 
 
       <GridItem gridArea="5 / 2 / 6 / 3" bgImage={Sport} {...backgroundImageStyle}  />
       <GridItem gridArea="6 / 2 / 7 / 3" p="5px 20px 20px">
-      <ChakraLink as={ReactRouterLink} to='/Fitness-&-Health' style={linkCategories}>FITNESS & HEALTH →</ChakraLink >     
+      <ChakraLink as={ReactRouterLink} to='/Fitness-&-Health' style={linkCategories}>{t('category.fitness_&_health')}</ChakraLink >     
       </GridItem>
 
 
       <GridItem gridArea="5 / 3 / 6 / 4"  bgImage={Code} {...backgroundImageStyle}  />
       <GridItem gridArea="6 / 3 / 7 / 4" p="5px 20px 20px">
-      <ChakraLink as={ReactRouterLink} to='/Software-&-Development' style={linkCategories}>SOFTWARE DEVELOPMENT →</ChakraLink >
+      <ChakraLink as={ReactRouterLink} to='/Software-&-Development' style={linkCategories}>{t('category.software_&_development')}</ChakraLink >
       </GridItem>
     </Grid>
     </Center>

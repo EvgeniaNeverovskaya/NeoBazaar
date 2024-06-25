@@ -2,10 +2,14 @@ import React, { useContext } from "react";
 import { Button, Center } from "@chakra-ui/react";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "./authContext";
+import { useTranslation } from "react-i18next";
+
 
 const ButtonStartTrading = () => {
   const { isLoggedIn } = useContext(AuthContext);
   const navigate = useNavigate();
+  const { t } = useTranslation();
+
 
   const handleButtonClick = () => {
     if (isLoggedIn) {
@@ -27,7 +31,7 @@ const ButtonStartTrading = () => {
         fontFamily='Arial'
         lineHeight='28.75px'
         fontWeight='400'>
-        Start Trading
+        {t('startTrading.start_trading')}
       </Button>
     </Center>
   );

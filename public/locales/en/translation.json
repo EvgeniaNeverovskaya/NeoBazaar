@@ -1,0 +1,71 @@
+{
+  "header": {
+    "about_us": "About Us",
+    "catalog": "Catalog",
+    "logout": "Logout",
+    "login": "Log In",
+    "NEOBAZAAR": "NEOBAZAAR"
+  },
+  "footer": {
+    "join_team": "JOIN THE TEAM OF CUSTOMER WHO USE NEO BAZAAR TO SHARE THEIR KNOWLEDGE. EASILY CREATE AND SELL DIGITAL DOWNLOADS USING OUR POWERFUL YET SIMPLE PLATFORM.",
+    "information": "Information",
+    "community": "Community",
+    "privacy_policy": "Privacy Policy",
+    "terms_of_service": "Terms of Service",
+    "help": "Help",
+    "want_to_talk": "Want to talk?",
+    "contact_email": "neodigitalbazaar@gmail.com",
+    "copyright": "© 2024 NEOBAZAAR"
+  },
+  "startTrading": {
+    "start_trading": "Start Treding",
+    "trading_descriptions_1": "Share your work.",
+    "trading_descriptions_2": "Someone out there needs it."
+  },
+  "category": {
+    "3D": "3D →",
+    "education": "EDUCATION →",
+    "audio": "AUDIO →",
+    "design": "DESIGN →",
+    "drawing_&_painting": "DRAWING & PAINTING →",
+    "photography": "PHOTOGRAPHY →",
+    "gaming": "GAMING →",
+    "fitness_&_health": "FITNESS & HEALTH →",
+    "software_&_development": "SOFTWARE DEVELOPMENT →",
+    "category_description_1": "Looking for inspiration on what you can sell?",
+    "category_description_2": "Discover the best-selling products and creators"
+  },
+  "products_list": {
+    "sell_anything": {
+      "name": "Sell anything",
+      "1": "Sell your Top 10 lists",
+      "2": "Sell your crypto tips",
+      "3": "Sell your fractal pack",
+      "4": "Sell your keto cookbook",
+      "5": " Sell your C4D scenes",
+      "6": " Sell your new emojis",
+      "7": "Seriously, sell anything!"
+    },
+
+    "sell_to_anyone": {
+      "name": "Sell to anyone",
+      "1": "BUILD A LOYAL FOLLOWING WITH SIMPLE POSTS, EMAIL NEWSLETTERS, AND AUTOMATED WORKFLOWS. PLUS LET YOUR CUSTOMERS PAY WHAT THEY WANT OR CHOOSE BETWEEN ONE-TIME, RECURRING, OR FIXED-LENGTH PAYMENTS IN YOUR CURRENCY OF CHOICE."
+    },
+
+    "sell_anywhere": {
+      "name": "Sell anywhere",
+      "1": "CREATE AND CUSTOMIZE YOUR STOREFRONT WITH OUR ALL-IN-ONE PLATFORM OR CHOOSE TO USE YOUR PERSONAL SITE INSTEAD. WITH ZAPIER, YOU CAN SEAMLESSLY CONNECT YOUR NEOBAZAAR ACCOUNT TO THOUSANDS OF APPS IN YOUR CURRENT STACK."
+    },
+
+    "make_your_own_way": {
+      "name": "Make your own way",
+      "btn": "Explore Features"
+    }
+  },
+  "description": {
+    "digital": "Digital",
+    "products":"Products",
+    "name":"DIGITAL PLATFORM",
+    "description":"THIS IS A SPACE FOR INTERACTION BETWEEN CREATORS AND USERS, PROMOTES THE DISTRIBUTION OF DIGITAL CONTENT AND PROVIDES OPPORTUNITIES FOR MONETIZATION AND DEVELOPMENT IN THE DIGITAL ENVIRONMENT."
+  }
+}

@@ -29,10 +29,10 @@ const products = [
     { id: 15, category: 'Design', name: "Mouse", userName: "UserName", price: 25, photo: `${Cat3}` },
     { id: 16, category: 'Design', name: "Гриб", userName: "UserName", price: 5, photo: `${Cat4}` },
   
-    { id: 17, category: 'Drawing-&-Painting', name: "Avatar", userName: "UserName", price: 15, photo: `${Cat1}` },
-    { id: 18, category: 'Drawing-&-Painting', name: "Bird", userName: "UserName", price: 30, photo: `${Cat2}` },
-    { id: 19, category: 'Drawing-&-Painting', name: "Mouse", userName: "UserName", price: 25, photo: `${Cat3}` },
-    { id: 20, category: 'Drawing-&-Painting', name: "Гриб", userName: "UserName", price: 5, photo: `${Cat4}` },
+    { id: 17, category: 'Drawing & Painting', name: "Avatar", userName: "UserName", price: 15, photo: `${Cat1}` },
+    { id: 18, category: 'Drawing & Painting', name: "Bird", userName: "UserName", price: 30, photo: `${Cat2}` },
+    { id: 19, category: 'Drawing & Painting', name: "Mouse", userName: "UserName", price: 25, photo: `${Cat3}` },
+    { id: 20, category: 'Drawing & Painting', name: "Гриб", userName: "UserName", price: 5, photo: `${Cat4}` },
   
     { id: 21, category: 'Photography', name: "Avatar", userName: "UserName", price: 15, photo: `${Cat1}` },
     { id: 22, category: 'Photography', name: "Bird", userName: "UserName", price: 30, photo: `${Cat2}` },
@@ -44,15 +44,15 @@ const products = [
     { id: 27, category: 'Gaming', name: "Mouse", userName: "UserName", price: 25, photo: `${Cat3}` },
     { id: 28, category: 'Gaming', name: "Гриб", userName: "UserName", price: 5, photo: `${Cat4}` },
   
-    { id: 29, category: 'Fitness-&-Health', name: "Avatar", userName: "UserName", price: 15, photo: `${Cat1}` },
-    { id: 30, category: 'Fitness-&-Health', name: "Bird", userName: "UserName", price: 30, photo: `${Cat2}` },
-    { id: 31, category: 'Fitness-&-Health', name: "Mouse", userName: "UserName", price: 25, photo: `${Cat3}` },
-    { id: 32, category: 'Fitness-&-Health', name: "Гриб", userName: "UserName", price: 5, photo: `${Cat4}` },
+    { id: 29, category: 'Fitness & Health', name: "Avatar", userName: "UserName", price: 15, photo: `${Cat1}` },
+    { id: 30, category: 'Fitness & Health', name: "Bird", userName: "UserName", price: 30, photo: `${Cat2}` },
+    { id: 31, category: 'Fitness & Health', name: "Mouse", userName: "UserName", price: 25, photo: `${Cat3}` },
+    { id: 32, category: 'Fitness & Health', name: "Гриб", userName: "UserName", price: 5, photo: `${Cat4}` },
   
-    { id:33, category: 'Software-&-Development', name: "Avatar", userName: "UserName", price: 15, photo: `${Cat1}` },
-    { id: 34, category: 'Software-&-Development', name: "Bird", userName: "UserName", price: 30, photo: `${Cat2}` },
-    { id: 35, category: 'Software-&-Development', name: "Mouse", userName: "UserName", price: 25, photo: `${Cat3}` },
-    { id: 36, category: 'Software-&-Development', name: "Гриб", userName: "UserName", price: 5, photo: `${Cat4}` },
+    { id:33, category: 'Software development', name: "Avatar", userName: "UserName", price: 15, photo: `${Cat1}` },
+    { id: 34, category: 'Software development', name: "Bird", userName: "UserName", price: 30, photo: `${Cat2}` },
+    { id: 35, category: 'Software development', name: "Mouse", userName: "UserName", price: 25, photo: `${Cat3}` },
+    { id: 36, category: 'Software development', name: "Гриб", userName: "UserName", price: 5, photo: `${Cat4}` },
   ];
 
   export default products;

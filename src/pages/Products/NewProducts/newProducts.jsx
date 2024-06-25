@@ -44,7 +44,6 @@ const NewProducts = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
   
-    // Проверка наличия всех обязательных полей
     if (
       !name.trim() ||
       !content.trim() ||
@@ -55,7 +54,7 @@ const NewProducts = () => {
     ) {
       setNameError(true);
       setContentError(true);
-      setDescription(true);
+      setDescriptionError(true);
       setPriciError(true);
       setTimeError(true);
       setCategoryError(true);
@@ -81,18 +80,14 @@ const NewProducts = () => {
     };
   
     try {
-      // Отправляем запрос на сервер
       const response = await axios.post('https://neobazaar-ee1c625c2e80.herokuapp.com/products', formData, {
         headers: {
           'Content-Type': 'application/json',
-          // Добавьте любые другие заголовки, необходимые для вашего API
         },
       });
   
-      // Обработка успешного ответа, если нужно
       console.log('Response:', response.data);
   
-      // Очистка состояния после успешного сохранения
       setName("");
       setContent("");
       setDescription("");
@@ -116,7 +111,6 @@ const NewProducts = () => {
       setCategoryError(false);
     } catch (error) {
       console.error('Error saving product:', error);
-      // Здесь можно добавить обработку ошибок, если нужно
     }
   };
   

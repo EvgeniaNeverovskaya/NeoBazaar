@@ -7,14 +7,22 @@ import {
   List,
   ListItem,
   Icon,
+  Button,
+  Switch
 } from "@chakra-ui/react";
 import { Link as ReactRouterLink, useNavigate } from "react-router-dom";
 import { FaUser, FaShoppingCart } from "react-icons/fa";
 import { AuthContext } from "../components/authContext";
+import { useTranslation } from "react-i18next";
 
 const Header = () => {
   const { isLoggedIn, user, handleLogout } = useContext(AuthContext);
   const navigate = useNavigate();
+  const { t, i18n } = useTranslation();
+
+  const changeLanguage = (lng) => {
+    i18n.changeLanguage(lng);
+  };
 
   const goToAllPage = () => {
     navigate("/All");
@@ -38,20 +46,26 @@ const Header = () => {
             fontWeight='500'
             fontSize='30px'
             lineHeight='35.8px'>
-            NEOBAZAAR
+            {t('header.NEOBAZAAR')}
           </ChakraLink>
           <List textStyle='button-small'>
             <Flex direction='row' gap='40px'>
               <ListItem>
                 <ChakraLink as={ReactRouterLink} to='/about-us'>
-                  about us
+                  {t('header.about_us')}
                 </ChakraLink>
               </ListItem>
               <ListItem>
-                <ChakraLink onClick={goToAllPage}>Catalog</ChakraLink>
+                <ChakraLink onClick={goToAllPage}>{t('header.catalog')}</ChakraLink>
               </ListItem>
             </Flex>
           </List>
+
+          
+          <Flex alignItems='center'>
+            <Button onClick={() => changeLanguage('en')}>EN</Button>
+            <Button onClick={() => changeLanguage('ru')} marginLeft='10px'>RU</Button>
+          </Flex>
 
           {isLoggedIn ? (
             <Flex alignItems='center'>
@@ -74,7 +88,7 @@ const Header = () => {
                 textStyle='button-medium'
                 marginLeft='20px'
                 cursor='pointer'>
-                Logout
+                {t('header.logout')}
               </ChakraLink>
             </Flex>
           ) : (
@@ -82,7 +96,7 @@ const Header = () => {
               textStyle='button-medium'
               as={ReactRouterLink}
               to='/log-in'>
-              Log in
+              {t('header.login')}
             </ChakraLink>
           )}
         </Flex>

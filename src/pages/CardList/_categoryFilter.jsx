@@ -39,11 +39,11 @@ const CategoryFilter = () => {
   Education: "#ACD2CF",
   Audio: "#F4E9C4",
   Design: "#FFC9F4",
-  "Drawing-&-Painting": "#F29D9E",
+  "Drawing & Painting": "#F29D9E",
   Photography: "#FAFAB0",
   Gaming: "#FFB9AA",
-  "Fitness-&-Health": "#B6C2E5",
-  "Software-&-Development": "#E9EAEA",
+  "Fitness & Health": "#B6C2E5",
+  "Software development": "#E9EAEA",
   "All": '#E8E8E7'
 };
 
@@ -57,11 +57,11 @@ const backgroundColor = sectionFilterAndSearchBackgrounds[category] || "#ffffff"
           <Button sx={ButtonStyle('Education')} onClick={() => handleCategoryClick('Education')}>Education</Button>
           <Button sx={ButtonStyle('Audio')} onClick={() => handleCategoryClick('Audio')}>Audio</Button>
           <Button sx={ButtonStyle('Design')} onClick={() => handleCategoryClick('Design')}>Design</Button>
-          <Button sx={ButtonStyle('Drawing-&-Painting')} onClick={() => handleCategoryClick('Drawing-&-Painting')}>Drawing & Painting</Button>
+          <Button sx={ButtonStyle('Drawing & Painting')} onClick={() => handleCategoryClick('Drawing & Painting')}>Drawing & Painting</Button>
           <Button sx={ButtonStyle('Photography')} onClick={() => handleCategoryClick('Photography')}>Photography</Button>
-          <Button sx={ButtonStyle('Fitness-&-Health')} onClick={() => handleCategoryClick('Fitness-&-Health')}>Fitness & Health</Button>
+          <Button sx={ButtonStyle('Fitness & Health')} onClick={() => handleCategoryClick('Fitness & Health')}>Fitness & Health</Button>
           <Button sx={ButtonStyle('Gaming')} onClick={() => handleCategoryClick('Gaming')}>Gaming</Button>
-          <Button sx={ButtonStyle('Software-&-Development')} onClick={() => handleCategoryClick('Software-&-Development')}>Software Development</Button>
+          <Button sx={ButtonStyle('Software development')} onClick={() => handleCategoryClick('Software development')}>Software development</Button>
         </Box>
       </Container>
     </Box>
