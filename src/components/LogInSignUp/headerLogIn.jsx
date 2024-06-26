@@ -1,8 +1,11 @@
 import React from "react";
 import { Link as ChakraLink, Flex, Container, Box } from "@chakra-ui/react";
 import { Link as ReactRouterLink } from "react-router-dom";
+import { useTranslation } from 'react-i18next';
+
 
 const HeaderLogIn = () => {
+  const {t} = useTranslation();
   return (
     <Box
       as='header'
@@ -21,7 +24,7 @@ const HeaderLogIn = () => {
             fontWeight='500'
             fontSize='30px'
             lineHeight='35.8px'>
-            NEOBAZAAR
+            {t('header.NEOBAZAAR')}
           </ChakraLink>
         </Flex>
       </Container>

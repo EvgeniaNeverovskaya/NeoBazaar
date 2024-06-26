@@ -3,6 +3,7 @@ import { useForm } from "react-hook-form";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { Link as ReactRouterLink } from "react-router-dom";
+import { useTranslation } from 'react-i18next';
 import {
   Box,
   FormControl,
@@ -38,6 +39,8 @@ export const inputStyle = {
 };
 
 const FormSignUp = () => {
+  const { t } = useTranslation();
+
   const {
     register,
     handleSubmit,
@@ -100,11 +103,11 @@ const FormSignUp = () => {
           <Input
             id='username'
             type='text'
-            placeholder='User Name'
+            placeholder={t('form.username')}
             sx={inputStyle}
             maxLength='30'
             {...register("username", {
-              required: "Username is required.",
+              required: t('form.errors.username_required'),
             })}
           />
           <FormErrorMessage>{errors.username?.message}</FormErrorMessage>
@@ -114,22 +117,21 @@ const FormSignUp = () => {
           <Input
             id='email'
             type='email'
-            placeholder='E-mail'
+            placeholder={t('form.email')}
             autoComplete='email'
             sx={inputStyle}
             {...register("email", {
-              required: "Email is required.",
+              required: t('form.errors.email_required'),
               maxLength: {
                 value: 192,
-                message: "Email cannot exceed 192 characters.",
+                message: t('form.errors.email_max_length'),
               },
 
               pattern: {
                 value:
                   /^[a-zA-Z0-9._-]{1,64}@[a-zA-Z0-9-]{1,63}\.[a-zA-Z]{2,63}$/,
-                message:
-                  "Please enter a valid email address (letters, numbers, ., -, _ only).",
-              },
+                  message: t('form.errors.email_invalid'),
+                },
             })}
           />
           <FormErrorMessage>
@@ -143,43 +145,33 @@ const FormSignUp = () => {
               placement='right'
               hasArrow
               bg='fuchsia'
-              label={
-                <span>
-                  From 8 to 30 characters. Latin letters, numbers and symbols:
-                  !, ?, -, _, . Min 1 digit, 1 letter in lowercase and 1 letter
-                  in uppercase{" "}
-                </span>
-              }
+              label={t('form.password_requirements')}
               aria-label='email-tooltip'>
               <Input
                 id='password'
                 type={showPassword ? "text" : "password"}
-                placeholder='Password'
+                placeholder={t('form.password')}
                 autoComplete='new-password'
                 sx={inputStyle}
                 {...register("password", {
-                  required: "Password is required.",
+                  required: t('form.errors.password_required'),
                   minLength: {
                     value: 8,
-                    message: "Password must be at least 8 characters long.",
+                    message: t('form.errors.password_min_length'),
                   },
                   maxLength: {
                     value: 30,
-                    message: "Password cannot exceed 30 characters.",
+                    message: t('form.errors.password_max_length'),
                   },
                   validate: {
                     containsDigit: (value) =>
-                      /\d/.test(value) ||
-                      "Password must contain at least one digit.",
+                      /\d/.test(value) || t('form.errors.password_contains_digit'),
                     containsLowercase: (value) =>
-                      /[a-z]/.test(value) ||
-                      "Password must contain at least one lowercase letter.",
+                      /[a-z]/.test(value) || t('form.errors.password_contains_lowercase'),
                     containsUppercase: (value) =>
-                      /[A-Z]/.test(value) ||
-                      "Password must contain at least one uppercase letter.",
+                      /[A-Z]/.test(value) || t('form.errors.password_contains_uppercase'),
                     containsSpecialChar: (value) =>
-                      /[\W_\-\.]/.test(value) ||
-                      "Password must contain at least one special character (!?, -, _,.)",
+                      /[\W_\-\.]/.test(value) || t('form.errors.password_contains_special_char'),
                   },
                 })}
               />
@@ -200,12 +192,12 @@ const FormSignUp = () => {
             <Input
               id='passwordConfirmation'
               type={showPassword ? "text" : "password"}
-              placeholder='Password Confirmation'
+              placeholder={t('form.password_confirmation')}
               autoComplete='new-password'
               {...register("passwordConfirmation", {
-                required: "Confirm your password",
+                required: t('form.errors.password_confirmation_required'),
                 validate: (value) =>
-                  value === password || "Passwords do not match.",
+                  value === password || t('form.errors.password_confirmation_match'),
               })}
               sx={inputStyle}
             />
@@ -235,7 +227,7 @@ const FormSignUp = () => {
           bg='#000'
           color='#fff'
           _hover={{ bg: "#000" }}>
-          Sign Up
+          {t('form.submit')}
         </Button>
         <FormControl display='flex' alignItems='center'>
           <Checkbox
@@ -256,20 +248,20 @@ const FormSignUp = () => {
                 },
               },
             }}></Checkbox>
-          <FormLabel m='0 10px'>
-            I agree to the
-            <ChakraLink
+          <FormLabel m='0 10px' fontSize='14px'>
+          {t('form.agree_to')}
+                      <ChakraLink
               as={ReactRouterLink}
               to='/terms-of-service'
               padding='0 5px'>
-              terms of service
+                {t('form.terms_of_service')}
             </ChakraLink>
-            and
+            {t('form.and')}
             <ChakraLink
               as={ReactRouterLink}
               to='/privacy-policy'
               padding='0 5px'>
-              privacy policy
+                {t('form.privacy_policy')}
             </ChakraLink>
           </FormLabel>
         </FormControl>

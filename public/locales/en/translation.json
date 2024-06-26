@@ -67,5 +67,57 @@
     "products":"Products",
     "name":"DIGITAL PLATFORM",
     "description":"THIS IS A SPACE FOR INTERACTION BETWEEN CREATORS AND USERS, PROMOTES THE DISTRIBUTION OF DIGITAL CONTENT AND PROVIDES OPPORTUNITIES FOR MONETIZATION AND DEVELOPMENT IN THE DIGITAL ENVIRONMENT."
-  }
+  },
+  "signup": {
+    "create_account": "Create your account",
+    "already_have_account": "Already have an account?",
+    "log_in": "Log in"
+  },  
+    "form": {
+      "username": "User Name",
+      "email": "E-mail",
+      "password": "Password",
+      "password_confirmation": "Password Confirmation",
+      "submit": "Sign Up",
+      "terms_of_service": "terms of service",
+      "privacy_policy": "privacy policy",
+      "agree_to": "I agree to the",
+      "and": "and",
+      "required": "is required.",
+      "password_requirements": "From 8 to 30 characters. Latin letters, numbers and symbols: !, ?, -, _, . Min 1 digit, 1 letter in lowercase and 1 letter in uppercase",
+      "errors": {
+        "username_required": "Username is required.",
+        "email_required": "Email is required.",
+        "email_max_length": "Email cannot exceed 192 characters.",
+        "email_invalid": "Please enter a valid email address (letters, numbers, ., -, _ only).",
+        "password_required": "Password is required.",
+        "password_min_length": "Password must be at least 8 characters long.",
+        "password_max_length": "Password cannot exceed 30 characters.",
+        "password_contains_digit": "Password must contain at least one digit.",
+        "password_contains_lowercase": "Password must contain at least one lowercase letter.",
+        "password_contains_uppercase": "Password must contain at least one uppercase letter.",
+        "password_contains_special_char": "Password must contain at least one special character (!?, -, _,.).",
+        "password_confirmation_required": "Confirm your password",
+        "password_confirmation_match": "Passwords do not match."
+      },
+      "error_message": "Error: "
+    
+  },
+  "login": {
+    "email_placeholder": "E-mail",
+    "email_required": "Email is required.",
+    "email_max_length": "Email cannot exceed 192 characters.",
+    "email_pattern": "Please enter a valid email address (letters, numbers, ., -, _ only).",
+    "forgot_password": "Forgot your password?",
+    "password_placeholder": "Password",
+    "password_required": "Password is required.",
+    "hi_there": "Hi there!",
+    "no_account": "Don’t have an account?",
+    "sign_up": "Sign up",
+    "submit": "Log in"
+  },
+  "reset_link": "Reset link"
+
+  
+  
 }

@@ -1,13 +1,14 @@
 import React from "react";
 import { Box, Container, Text, Link as ChakraLink } from "@chakra-ui/react";
 import HeaderLogIn from "../components/LogInSignUp/headerLogIn";
-import FormLogInSeparator from "../components/LogInSignUp/formSeparator";
 import LoginSquares from "../components/LogInSignUp/loginSquares";
 import FormSignUp from "../components/LogInSignUp/formSignUp";
 import { Link as ReactRouterLink } from "react-router-dom";
-import ButtonGoogleSignUp from "../components/LogInSignUp/buttonGoogleSignUp";
+import { useTranslation } from "react-i18next";
+
 
 const SignUp = () => {
+  const { t } = useTranslation();
   return (
     <Box as='section' bgColor='green-black' w='100vw' h='100vh' overflow='auto'>
       <HeaderLogIn />
@@ -19,9 +20,10 @@ const SignUp = () => {
               flexDirection='column'
               gap='10px'
               alignItems='center'
+              textAlign='center'
               margin='20px 0'>
               <Text fontWeight='500' fontSize='60px'>
-                Create your account
+              {t('signup.create_account')}
               </Text>
 
               <Text
@@ -30,7 +32,7 @@ const SignUp = () => {
                 fontWeight='400'
                 fontSize='16px'
                 lineHeight='20px'>
-                Already have an account?
+                {t('signup.already_have_account')}
                 <ChakraLink
                   as={ReactRouterLink}
                   to='/log-in'
@@ -40,12 +42,10 @@ const SignUp = () => {
                   lineHeight='20px'
                   color='#fff'
                   padding='0 5px'>
-                  Log in
+                  {t('signup.log_in')}
                 </ChakraLink>
               </Text>
             </Box>
-            <ButtonGoogleSignUp />
-            <FormLogInSeparator />
             <FormSignUp />
           </Box>
           <Box

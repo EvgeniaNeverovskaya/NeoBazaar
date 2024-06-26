@@ -13,15 +13,17 @@ import {
   VStack,
   Link as ChakraLink,
   Flex,
+  Button,
   FormErrorMessage,
 } from "@chakra-ui/react";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import Cookies from "js-cookie";
-import ButtonLogIn from "./buttonLogIn";
 import { AuthContext } from "../authContext";
 import { inputStyle } from "./formSignUp";
+import { useTranslation } from "react-i18next";
 
 const FormLogIn = () => {
+  const { t } = useTranslation();
   const {
     handleSubmit,
     register,
@@ -80,21 +82,20 @@ const FormLogIn = () => {
           <Input
             id='email'
             type='email'
-            placeholder='E-mail'
+            placeholder={t("form.email")}
             autoComplete='email'
             sx={inputStyle}
             {...register("email", {
-              required: "Email is required.",
+              required: t("login.email_required"),
               maxLength: {
                 value: 192,
-                message: "Email cannot exceed 192 characters.",
+                message: t("login.email_max_length"),
               },
 
               pattern: {
                 value:
                   /^[a-zA-Z0-9._-]{1,64}@[a-zA-Z0-9-]{1,63}\.[a-zA-Z]{2,63}$/,
-                message:
-                  "Please enter a valid email address (letters, numbers, ., -, _ only).",
+                message: t("login.email_pattern"),
               },
             })}
           />
@@ -102,11 +103,10 @@ const FormLogIn = () => {
             {errors.email && errors.email.message}
           </FormErrorMessage>
         </FormControl>
-
         <Flex justifyContent='flex-end' width='100%'>
           <Box>
             <ChakraLink as={ReactRouterLink} to='/reset' textStyle='body-small'>
-              Forgot your password?
+              {t("login.forgot_password")}
             </ChakraLink>
           </Box>
         </Flex>
@@ -116,9 +116,11 @@ const FormLogIn = () => {
             <Input
               id='password'
               type={showPassword ? "text" : "password"}
-              placeholder='Password'
+              placeholder={t("login.password_placeholder")}
               autoComplete='current-password'
-              {...register("password", { required: "Password is required." })}
+              {...register("password", {
+                required: t("login.password_required"),
+              })}
               sx={inputStyle}
             />
             <InputRightElement>
@@ -136,8 +138,21 @@ const FormLogIn = () => {
             {errorMessage}
           </Box>
         )}
-
-        <ButtonLogIn />
+        <Button
+          type='submit'
+          bg='#000'
+          p='10px 20px'
+          color='#fff'
+          width='100%'
+          mt='30px'
+          borderRadius='10px'
+          fontFamily='Arial'
+          fontSize='18px'
+          fontWeight='700'
+          lineHeight='20px'
+          _hover={{ bg: "fuchsia" }}>
+          {t("login.submit")}
+        </Button>
       </VStack>
     </Box>
   );
