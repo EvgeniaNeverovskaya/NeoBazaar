@@ -7,6 +7,8 @@ import {
   FormErrorMessage,
   FormHelperText,
 } from "@chakra-ui/react";
+import { useTranslation } from "react-i18next";
+
 
 const ContentDescription = ({
   name,
@@ -19,6 +21,8 @@ const ContentDescription = ({
   contentError,
   descriptionError,
 }) => {
+  const {t} = useTranslation();
+
   const isErrorName = nameError && name === "";
   const isErrorContent = contentError && content === "";
   const isErrorDescribe = descriptionError && description === "";
@@ -33,7 +37,7 @@ const ContentDescription = ({
         <Input
           type='text'
           name='name'
-          placeholder='Name'
+          placeholder={t("products.form.name")}
           maxLength='50'
           bg='#fff'
           required
@@ -42,17 +46,17 @@ const ContentDescription = ({
         />
         {!isErrorName ? (
           <FormHelperText textAlign='end' color='#7E88A4' padding='0 20px'>
-            {numberOfCharactersInTheNameField} of 50
+            {numberOfCharactersInTheNameField} {t("products.form.of")} 50
           </FormHelperText>
         ) : (
-          <FormErrorMessage>Name is required.</FormErrorMessage>
+          <FormErrorMessage>{t("products.form.name_error")}</FormErrorMessage>
         )}
       </FormControl>
       <FormControl id='content' isInvalid={isErrorContent}>
         <Textarea
           type='text'
           name='content'
-          placeholder='Provide important information about the product (file format, size, number of pages, release date, number of license users, etc.).'
+          placeholder={t("products.form.content")}
           maxLength='200'
           minH='133px'
           bg='#fff'
@@ -63,17 +67,17 @@ const ContentDescription = ({
 
         {!isErrorContent ? (
           <FormHelperText textAlign='end' color='#7E88A4' padding='0 20px'>
-            {numberOfCharactersInTheContentField} of 200
+            {numberOfCharactersInTheContentField} {t("products.form.of")} 200
           </FormHelperText>
         ) : (
-          <FormErrorMessage>Name is required.</FormErrorMessage>
+          <FormErrorMessage>{t("products.form.content_error")}</FormErrorMessage>
         )}
       </FormControl>
       <FormControl id='describe-product' isInvalid={isErrorDescribe}>
         <Textarea
           type='text'
           name='describe-product'
-          placeholder='Describe Your Product'
+          placeholder={t("products.form.describe_error")}
           maxLength='500'
           minH='147px'
           bg='#fff'
@@ -84,10 +88,10 @@ const ContentDescription = ({
 
         {!isErrorDescribe ? (
           <FormHelperText textAlign='end' color='#7E88A4' padding='0 20px'>
-            {numberOfCharactersInTheDescribeProductField} of 500
+            {numberOfCharactersInTheDescribeProductField} {t("products.form.of")} 500
           </FormHelperText>
         ) : (
-          <FormErrorMessage>Name is required.</FormErrorMessage>
+          <FormErrorMessage>{t("products.form.describe_error")}</FormErrorMessage>
         )}
       </FormControl>
     </Flex>

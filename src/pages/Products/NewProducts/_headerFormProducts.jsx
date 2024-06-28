@@ -1,8 +1,11 @@
 import React from "react";
 import { Link as ReactRouterLink } from "react-router-dom";
 import { Link as ChakraLink, Box, Flex, Text, Button } from "@chakra-ui/react";
+import { useTranslation } from "react-i18next";
 
 const HeaderFormProducts = ({ onSaveClick }) => {
+  const {t} = useTranslation();
+
   return (
     <Box
       className='actions'
@@ -21,7 +24,7 @@ const HeaderFormProducts = ({ onSaveClick }) => {
           fontFamily='Arial'
           fontWeight='400'
           onClick={onSaveClick}>
-          Save
+          {t("products.save")}
         </Button>
         <ChakraLink
           style={{ textDecoration: "none" }}

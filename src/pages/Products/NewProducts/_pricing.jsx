@@ -1,4 +1,3 @@
-// Pricing.js
 import React from "react";
 import {
   Box,
@@ -8,26 +7,25 @@ import {
   Input,
   InputGroup, InputLeftElement,
   Switch,
+  FormErrorMessage
 } from "@chakra-ui/react";
 import InputMask from "react-input-mask";
+import { useTranslation } from "react-i18next";
 
 
 
 const Pricing = ({
   price,
   setPrice,
-  currency,
-  setCurrency,
   isCheckedPracing,
   setIsCheckedPracing,
   priciError,
 }) => {
+  const {t} = useTranslation();
+
   const isErrorPrici = priciError && price === "";
 
 
-  const handleCurrencyChange = (event) => {
-    setCurrency(event.target.value);
-  };
 
   const handlePriceChange = (event) => {
     let value = event.target.value.replace(/[^0-9]/g, "");
@@ -37,7 +35,7 @@ const Pricing = ({
   return (
     <Box className='pricing-product'>
       <Text textStyle='headline-small' mb='30px'>
-        Pricing
+        {t("products.form.pricing")}
       </Text>
 
       <Flex direction='column' alignItems='center' w='100%' gap='25px'>
@@ -54,13 +52,17 @@ const Pricing = ({
             mask='**.**'
             maskChar={null}
             name='pricing-product'
-            placeholder='Price'
+            placeholder=        {t("products.form.price")}
+
             value={price}
             onChange={handlePriceChange}
             bg='#fff'
             required
           />
           </InputGroup>
+          {isErrorPrici && (
+        <FormErrorMessage>{t("products.form.price_error")}</FormErrorMessage>
+      )}
         </FormControl>
        
       </Flex>
@@ -82,7 +84,7 @@ const Pricing = ({
           fontWeight='400'
           fontSize='20px'
           lineHeight='22px'>
-          Allow customers to pay what they want
+        {t("products.form.any_price")}
         </Text>
       </Flex>
     </Box>

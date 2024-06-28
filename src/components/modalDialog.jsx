@@ -12,7 +12,7 @@ import {
 
 const ModalDialog = ({ children, openButton, onClose }) => {
   const { isOpen, onOpen, onClose: internalOnClose } = useDisclosure();
-  const handleClose = onClose || internalOnClose; // Используйте переданный onClose или внутренний onClose
+  const handleClose = onClose || internalOnClose;
 
   const customOverlay = (
     <ModalOverlay bg='rgba(0, 0, 0, 0.75)' backdropFilter='blur(10px)' />

@@ -8,6 +8,8 @@ import Search from "./_search";
 import products from "./_products";
 import { CiFaceFrown } from "react-icons/ci";
 import CustomPagination from "./_customPagination";
+import { useTranslation } from "react-i18next";
+
 
 const categoryFilterBackgrounds = {
   "3D": "#FFD3F6",
@@ -56,6 +58,7 @@ function ProductList({ products, backgroundColor }) {
 }
 
 const ProductCatalog = () => {
+  const {t} = useTranslation();
   const { category } = useParams();
   const [filteredProducts, setFilteredProducts] = useState(products);
   const [searchResults, setSearchResults] = useState([]);
@@ -102,7 +105,8 @@ const ProductCatalog = () => {
         textAlign: "-webkit-center"
       }}>
         <CiFaceFrown fontSize='44px' />
-        <Text fontSize='25px' fontWeight='700' lineHeight='20px' mt='25px'>Product not found</Text>
+        <Text fontSize='25px' fontWeight='700' lineHeight='20px' mt='25px'>        {t("products.not_found")}
+</Text>
       </Box>
     );
   }

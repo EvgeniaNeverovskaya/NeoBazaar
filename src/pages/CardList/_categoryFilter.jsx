@@ -1,10 +1,12 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { Box, Button, Container } from "@chakra-ui/react";
 import { Link as ReactRouterLink, useLocation, useParams, useNavigate   } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 
 
 const CategoryFilter = () => {
+  const {t} = useTranslation();
   const location = useLocation();
   const navigate = useNavigate();
   const [selectedCategory, setSelectedCategory] = useState('All');
@@ -52,16 +54,16 @@ const backgroundColor = sectionFilterAndSearchBackgrounds[category] || "#ffffff"
     <Box as="section" className="AllCategories" padding='12.5px 0 25px'>
       <Container maxW="8xl" padding='0px'>
       <Box display="flex" justifyContent="space-between" bg={backgroundColor} borderRadius="14px" padding="6.5px">
-          <Button sx={ButtonStyle('All')} onClick={() => handleCategoryClick('All')}>All</Button>
-          <Button sx={ButtonStyle('3D')} onClick={() => handleCategoryClick('3D')}>3D</Button>
-          <Button sx={ButtonStyle('Education')} onClick={() => handleCategoryClick('Education')}>Education</Button>
-          <Button sx={ButtonStyle('Audio')} onClick={() => handleCategoryClick('Audio')}>Audio</Button>
-          <Button sx={ButtonStyle('Design')} onClick={() => handleCategoryClick('Design')}>Design</Button>
-          <Button sx={ButtonStyle('Drawing & Painting')} onClick={() => handleCategoryClick('Drawing & Painting')}>Drawing & Painting</Button>
-          <Button sx={ButtonStyle('Photography')} onClick={() => handleCategoryClick('Photography')}>Photography</Button>
-          <Button sx={ButtonStyle('Fitness & Health')} onClick={() => handleCategoryClick('Fitness & Health')}>Fitness & Health</Button>
-          <Button sx={ButtonStyle('Gaming')} onClick={() => handleCategoryClick('Gaming')}>Gaming</Button>
-          <Button sx={ButtonStyle('Software development')} onClick={() => handleCategoryClick('Software development')}>Software development</Button>
+          <Button sx={ButtonStyle('All')} onClick={() => handleCategoryClick('All')}>{t('category.all')}</Button>
+          <Button sx={ButtonStyle('3D')} onClick={() => handleCategoryClick('3D')}>{t('category.3D')}</Button>
+          <Button sx={ButtonStyle('Education')} onClick={() => handleCategoryClick('Education')}>{t('category.education')}</Button>
+          <Button sx={ButtonStyle('Audio')} onClick={() => handleCategoryClick('Audio')}>{t('category.audio')}</Button>
+          <Button sx={ButtonStyle('Design')} onClick={() => handleCategoryClick('Design')}>{t('category.design')}</Button>
+          <Button sx={ButtonStyle('Drawing & Painting')} onClick={() => handleCategoryClick('Drawing & Painting')}>{t('category.drawing_&_painting')}</Button>
+          <Button sx={ButtonStyle('Photography')} onClick={() => handleCategoryClick('Photography')}>{t('category.photography')}</Button>
+          <Button sx={ButtonStyle('Fitness & Health')} onClick={() => handleCategoryClick('Fitness & Health')}>{t('category.fitness_&_health')}</Button>
+          <Button sx={ButtonStyle('Gaming')} onClick={() => handleCategoryClick('Gaming')}>{t('category.gaming')}</Button>
+          <Button sx={ButtonStyle('Software development')} onClick={() => handleCategoryClick('Software development')}>{t('category.software_&_development')}</Button>
         </Box>
       </Container>
     </Box>

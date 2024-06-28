@@ -1,8 +1,11 @@
 import React, { useState, useRef } from "react";
 import { Box, Button, FormControl, Link, Text } from "@chakra-ui/react";
 import { BsFileEarmarkArrowUp, BsTrashFill } from "react-icons/bs"; // Import the trash icon
+import { useTranslation } from "react-i18next";
 
 const MediaUpload = ({ file, setFile }) => {
+  const {t} = useTranslation();
+
   const fileInputRef = useRef(null);
 
   const handleFileChange = (event) => {
@@ -35,7 +38,7 @@ const MediaUpload = ({ file, setFile }) => {
         alignItems='center'
         justifyContent='space-between'>
         <Text alignSelf='flex-start' textStyle='Ui/Body-medium' color='#7E88A4'>
-          Thumbnail
+          {t("products.form.thumbnail")}
         </Text>
         {file && (
           <Box display='flex' alignItems='center'>
@@ -46,8 +49,8 @@ const MediaUpload = ({ file, setFile }) => {
               color='#7E88A4'
               fontSize='20px'
               fontFamily='Arial'>
-              Open Product Preview
-            </Link>
+          {t("products.form.preview")}
+          </Link>
             <Button
               leftIcon={<BsTrashFill fontSize='24px' />}
               color='#7E88A4'
@@ -71,7 +74,6 @@ const MediaUpload = ({ file, setFile }) => {
           color='white'
           bg='black'
           borderRadius='10px'
-          w='189px'
           p='28px'
           m='20px'
           fontFamily='Arial'
@@ -79,12 +81,10 @@ const MediaUpload = ({ file, setFile }) => {
           fontWeight='400'
           lineHeight='23px'
           onClick={handleButtonClick}>
-          Upload files
-        </Button>
+          {t("products.form.upload_files")}
+          </Button>
         <Text textStyle='Ui/Body-medium' color='#7E88A4' textAlign='center'>
-          This image appears in the Neobazaar Library, Discover and Profile
-          pages. Your image should be square, at least 600x600px, and JPEG, PNG,
-          PDF, MP3, MP4, WAV, AV format. File size no more than 50 MB.
+        {t("products.form.upload_files_description")}
         </Text>
       </Box>
     </>

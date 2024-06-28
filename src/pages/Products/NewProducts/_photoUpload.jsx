@@ -1,7 +1,7 @@
-import React, { useState, useRef, useEffect } from "react";
+import React, { useRef } from "react";
 import { BsFileEarmarkArrowUp } from "react-icons/bs";
 import { ImCross } from "react-icons/im";
-import { FaLink } from "react-icons/fa6";
+import { useTranslation } from "react-i18next";
 
 import {
   Box,
@@ -14,47 +14,38 @@ import {
 } from "@chakra-ui/react";
 
 const PhotoUpload = ({ photos, setPhotos }) => {
-  const fileInputRef = useRef(null); 
-  const numberOfPhotosUploaded = photos.length;
-  
+  const { t } = useTranslation();
 
+  const fileInputRef = useRef(null);
+  const numberOfPhotosUploaded = photos.length;
 
   const handleFileChange = (event) => {
     const files = Array.from(event.target.files);
 
-    const validFormats = files.filter((file) =>
-      ["image/jpeg", "image/png", "image/gif"].includes(file.type),
+    const validFormats = ["image/jpeg", "image/png", "image/gif"];
+    const invalidFiles = files.filter(
+      (file) => !validFormats.includes(file.type),
     );
 
-    if (
-      !validFormats.every((file) =>
-        ["image/jpeg", "image/png", "image/gif"].includes(file.type),
-      )
-    ) {
-      alert("Unsupported format. Please upload JPEG, PNG, or GIF images.");
-      return; 
+    if (invalidFiles.length > 0) {
+      alert(t("products.form.photo_alert_1"));
+      return;
     }
 
-    const totalSize = validFormats.reduce(
-      (total, file) => total + file.size,
-      0,
-    );
+    const totalSize = files.reduce((total, file) => total + file.size, 0);
 
     if (totalSize > 10000000) {
-      alert("Total photo size exceeds 10 MB");
-      return; 
+      alert(t("products.form.photo_alert_2"));
+      return;
     }
 
-    if (photos.length + validFormats.length > 3) {
-      alert("Maximum of 3 photos allowed");
-      return; 
+    if (photos.length + files.length > 3) {
+      alert(t("products.form.photo_alert_3"));
+      return;
     }
 
-    
-    setPhotos([...photos, ...validFormats]);
-    fileInputRef.current.value = ""; 
-
-    
+    setPhotos([...photos, ...files]);
+    fileInputRef.current.value = "";
   };
 
   const handleRemove = (index) => {
@@ -64,7 +55,7 @@ const PhotoUpload = ({ photos, setPhotos }) => {
   };
 
   const handleClick = () => {
-    fileInputRef.current.click(); 
+    fileInputRef.current.click();
   };
 
   return (
@@ -80,12 +71,13 @@ const PhotoUpload = ({ photos, setPhotos }) => {
       alignItems='center'
       justifyContent='space-between'>
       <Box display='flex' justifyContent='space-between' width='100%'>
-      <Text  textStyle='Ui/Body-medium' color='#7E88A4'>
-        Cover
-      </Text>
-      <Text  textStyle='Ui/Body-medium' color='#7E88A4'>
-      Loaded {numberOfPhotosUploaded} of 3
-      </Text>
+        <Text textStyle='Ui/Body-medium' color='#7E88A4'>
+          {t("products.form.cover")}
+        </Text>
+        <Text textStyle='Ui/Body-medium' color='#7E88A4'>
+          {t("products.form.loaded")} {numberOfPhotosUploaded}{" "}
+          {t("products.form.of")} 3
+        </Text>
       </Box>
       <Grid
         templateColumns='repeat(3, 1fr)'
@@ -117,33 +109,31 @@ const PhotoUpload = ({ photos, setPhotos }) => {
         ))}
       </Grid>
 
-          <Input
-            type='file'
-            accept='image/*'
-            ref={fileInputRef} 
-            onChange={handleFileChange}
-            multiple
-            style={{ display: "none" }} 
-          />
-          <Button
-            leftIcon={<BsFileEarmarkArrowUp fontSize='24px' />}
-            color='white'
-            bg='black'
-            borderRadius='10px'
-            p='28px'
-            fontFamily='Arial'
-            fontSize='20px'
-            fontWeight='400'
-            lineHeight='23px'
-            onClick={handleClick}
-            mb='20px'>
-            Upload a cover photo
-          </Button>
+      <Input
+        type='file'
+        accept='image/*'
+        ref={fileInputRef}
+        onChange={handleFileChange}
+        multiple
+        style={{ display: "none" }}
+      />
+      <Button
+        leftIcon={<BsFileEarmarkArrowUp fontSize='24px' />}
+        color='white'
+        bg='black'
+        borderRadius='10px'
+        p='28px'
+        fontFamily='Arial'
+        fontSize='20px'
+        fontWeight='400'
+        lineHeight='23px'
+        onClick={handleClick}
+        mb='20px'>
+        {t("products.form.upload_photo")}
+      </Button>
 
       <Text textStyle='Ui/Body-medium' color='#7E88A4' textAlign='center'>
-        Supports file formats: JPEG, PNG, GIF. The image size is at least
-        600x600px. Photo size no more than 10 MB. The maximum number of photos
-        is 3 pieces.
+        {t("products.form.upload_photo_description")}
       </Text>
     </Box>
   );

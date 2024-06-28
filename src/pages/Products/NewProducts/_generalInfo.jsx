@@ -1,7 +1,10 @@
 import React, { useState } from "react";
 import { Flex, FormControl, FormLabel, Input, Select } from "@chakra-ui/react";
+import { useTranslation } from "react-i18next";
 
 const GeneralInfo = ({ status, setStatus, id, setId, setDate }) => {
+  const {t} = useTranslation();
+
   return (
     <Flex gap='20%' mb='50px'>
       <FormControl id='id' isDisabled>
@@ -18,7 +21,7 @@ const GeneralInfo = ({ status, setStatus, id, setId, setDate }) => {
       </FormControl>
 
       <FormControl id='status'>
-        <FormLabel>Status</FormLabel>
+        <FormLabel>{t("products.form.status")}</FormLabel>
         <Select
           value={status}
           onChange={(e) => setStatus(e.target.value)}
@@ -27,14 +30,14 @@ const GeneralInfo = ({ status, setStatus, id, setId, setDate }) => {
           fontSize='16px'
           fontWeight='400'
           lineHeight='22px'>
-          <option value='draft'>Draft</option>
-          <option value='active'>Published</option>
-          <option value='inactive'>Deactivated</option>
+          <option value='draft'>{t("products.form.draft")}</option>
+          <option value='published'>{t ("products.form.published")}</option>
+          <option value='deactivated'>{t ("products.form.deactivated")}</option>
         </Select>
       </FormControl>
 
       <FormControl id='date' isDisabled>
-        <FormLabel>Date</FormLabel>
+        <FormLabel>{t("products.form.date")}</FormLabel>
         <Input
           type='text'
           name='date'

@@ -1,6 +1,7 @@
 import React from "react";
 import { Link as ChakraLink, Box, Button } from "@chakra-ui/react";
 import { Link as ReactRouterLink } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 const buttonStyle = {
   bg: "rgba(210, 122, 179, 1)",
@@ -16,6 +17,8 @@ const buttonStyle = {
 };
 
 const UserMenu = () => {
+  const { t  } = useTranslation();
+
   return (
     <Box
       bg='fuchsia'
@@ -39,19 +42,19 @@ const UserMenu = () => {
           as={ReactRouterLink}
           to='/products'
           style={{ textDecoration: "none" }}>
-          <Button sx={buttonStyle}>MyProducts</Button>
+          <Button sx={buttonStyle}>{t('user_menu.my_products')}</Button>
         </ChakraLink>
         <ChakraLink
           as={ReactRouterLink}
           to='/cart'
           style={{ textDecoration: "none" }}>
-          <Button sx={buttonStyle}>Cart</Button>
+          <Button sx={buttonStyle}>{t('user_menu.cart')}</Button>
         </ChakraLink>
         <ChakraLink
           as={ReactRouterLink}
           to='/profile'
           style={{ textDecoration: "none" }}>
-          <Button sx={buttonStyle}>Profile</Button>
+          <Button sx={buttonStyle}>{t('user_menu.profile')}</Button>
         </ChakraLink>
       </Box>
     </Box>

@@ -1,7 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { FormControl, Select, FormErrorMessage } from "@chakra-ui/react";
+import { useTranslation } from "react-i18next";
+
 
 const CategorySelection = ({ category, setCategory, categoryError }) => {
+    const {t} = useTranslation();
+
   const [categories, setCategories] = useState([]);
   const [error, setError] = useState(null);
 
@@ -32,16 +36,15 @@ const CategorySelection = ({ category, setCategory, categoryError }) => {
         fontSize="16px"
         fontWeight="400"
         lineHeight="22px"
-        placeholder="Category"
+        placeholder={t("products.form.category")} 
       >
         {categories.map((cat) => (
           <option key={cat.id} value={cat.id}>
-            {cat.name}
-          </option>
+{t(`category.${cat.name}`)}          </option>
         ))}
       </Select>
       {isErrorCategory && (
-        <FormErrorMessage>Category is required.</FormErrorMessage>
+        <FormErrorMessage>{t("products.form.category_is_required")}</FormErrorMessage> 
       )}
     </FormControl>
   );

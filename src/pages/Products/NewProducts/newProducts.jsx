@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import UserMenu from "../../../components/userMenu";
+import { useTranslation } from "react-i18next";
 import axios from 'axios';
 import {
   Box,
@@ -17,6 +18,8 @@ import TimeSelection from "./_timeSelection";
 import PhotoUpload from "./_photoUpload";
 
 const NewProducts = () => {
+  const {t} = useTranslation();
+
   const [status, setStatus] = useState("draft");
   const [name, setName] = useState("");
   const [content, setContent] = useState("");

@@ -1,11 +1,12 @@
-// CartItem.js
 import React from "react";
 import { Box, Text, Image, Flex, Button, Checkbox } from "@chakra-ui/react";
 import { AiOutlineMessage } from "react-icons/ai";
 import { BsTrash } from "react-icons/bs";
 import ModalDialog from "../../components/modalDialog";
+import { useTranslation } from "react-i18next";
 
 const CartItem = ({ product, onSelect, isSelected }) => {
+  const { t } = useTranslation();
   const { id, name, userName, price, photo, email } = product;
 
   const handleSelectChange = () => {
@@ -92,7 +93,7 @@ const CartItem = ({ product, onSelect, isSelected }) => {
                 fontWeight='400'
                 mb='30px'
                 textAlign='center'>
-                Do you really want to delete the product from the shopping cart?
+                {t("cart.delete_product")}
               </Text>
               <Flex align='center' justify='center' gap={10}>
                 <Button
@@ -101,7 +102,7 @@ const CartItem = ({ product, onSelect, isSelected }) => {
                   padding='30px 118px'
                   fontSize='20px'
                   fontWeight='400'>
-                  Yes
+                  {t("cart.yes")}
                 </Button>
                 <Button
                   bg='#2F2F2F'
@@ -114,9 +115,8 @@ const CartItem = ({ product, onSelect, isSelected }) => {
                       .closest("[role='dialog']")
                       .querySelector("[aria-label='Close']")
                       .click()
-                  } 
-                >
-                  No
+                  }>
+                  {t("cart.no")}
                 </Button>
               </Flex>
             </Box>
@@ -136,13 +136,12 @@ const CartItem = ({ product, onSelect, isSelected }) => {
             }>
             <Box p='20px'>
               <Text fontSize='24px' fontWeight='400' textAlign='center'>
-              Please contact the seller to purchase via email - {email}
+                {t("cart.contact_seller_1")}
+                {email}
               </Text>
             </Box>
           </ModalDialog>
-          <Text sx={{textWrap:'nowrap'}}>
-            $ {price}
-          </Text>
+          <Text sx={{ textWrap: "nowrap" }}>$ {price}</Text>
         </Flex>
       </Box>
     </>

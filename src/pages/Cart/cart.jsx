@@ -5,7 +5,7 @@ import Cat from "../../image/1.jpg";
 import { Box, Container, Flex, Button } from "@chakra-ui/react";
 import CartItem from "./_cartItem";
 import PayProducts from "./_payProducts";
-import Header from "../../components/Header";
+import { useTranslation } from "react-i18next";
 
 const data = [
   {
@@ -38,6 +38,7 @@ const data = [
 ];
 
 const Cart = () => {
+  const {t} = useTranslation();
   const [selectedProducts, setSelectedProducts] = useState([]);
   
   const handleProductSelect = (productId, isSelected) => {
@@ -77,8 +78,8 @@ const Cart = () => {
           </Box>
         </Flex>
         <Flex mt='20px' fontFamily='Arial' fontWeight='400' fontSize='20px'>
-          <Button onClick={handleSelectAll} mr='10px' bg='white'>Select All</Button>
-          <Button onClick={handleDeleteAll} bg='white'>Cancel selection</Button>
+          <Button onClick={handleSelectAll} mr='10px' bg='white'>{t("cart.select_all")}</Button>
+          <Button onClick={handleDeleteAll} bg='white'>{t("cart.cancel_selection")}</Button>
         </Flex>
       </Container>
     </Box>
