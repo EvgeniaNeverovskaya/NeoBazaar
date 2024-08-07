@@ -89,7 +89,7 @@ const Categories = () => {
 
       <GridItem gridArea="3 / 2 / 4 / 3"  bgImage={Paint} {...backgroundImageStyle}  />
       <GridItem gridArea="4 / 2 / 5 / 3" p="5px 20px 20px">
-      <ChakraLink as={ReactRouterLink} to='/Drawing-&-Painting' style={linkCategories}>{t('category.drawing_&_painting')} →</ChakraLink >
+      <ChakraLink as={ReactRouterLink} to={`${encodeURIComponent('Drawing & Painting')}`} style={linkCategories}>{t('category.drawing_&_painting')} →</ChakraLink >
       </GridItem>
 
 
@@ -108,13 +108,13 @@ const Categories = () => {
 
       <GridItem gridArea="5 / 2 / 6 / 3" bgImage={Sport} {...backgroundImageStyle}  />
       <GridItem gridArea="6 / 2 / 7 / 3" p="5px 20px 20px">
-      <ChakraLink as={ReactRouterLink} to='/Fitness-&-Health' style={linkCategories}>{t('category.fitness_&_health')} →</ChakraLink >     
+      <ChakraLink as={ReactRouterLink} to={`${encodeURIComponent('Fitness & Health')}`} style={linkCategories}>{t('category.fitness_&_health')} →</ChakraLink >     
       </GridItem>
 
 
       <GridItem gridArea="5 / 3 / 6 / 4"  bgImage={Code} {...backgroundImageStyle}  />
       <GridItem gridArea="6 / 3 / 7 / 4" p="5px 20px 20px">
-      <ChakraLink as={ReactRouterLink} to='/Software-&-Development' style={linkCategories}>{t('category.software_&_development')} →</ChakraLink >
+      <ChakraLink as={ReactRouterLink} to={`${encodeURIComponent('Software development')}`} style={linkCategories}>{t('category.software_&_development')} →</ChakraLink >
       </GridItem>
     </Grid>
     </Center>

@@ -12,13 +12,13 @@ const CategoryFilter = () => {
   const [selectedCategory, setSelectedCategory] = useState('All');
  
   useEffect(() => {
-      const pathCategory = location.pathname.split('/')[1];
-      setSelectedCategory(pathCategory || 'All');
+    const pathCategory = decodeURIComponent(location.pathname.split('/')[1]);
+    setSelectedCategory(pathCategory || 'All');
   }, [location]);
- 
+
   const handleCategoryClick = useCallback((category) => {
-    navigate(`/${category}`);
-   }, [navigate]);
+    navigate(`/${encodeURIComponent(category)}`);
+  }, [navigate]);
    
 
  const ButtonStyle = (category) => ({
