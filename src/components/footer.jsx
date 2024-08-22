@@ -18,7 +18,7 @@ const Footer = () => {
   const { t } = useTranslation();
   
   return (
-    <Box as='footer' bg='lemon' padding={{base: '0', sm: '15px', md: "70px 30px"}}>
+    <Box as='footer' bg='lemon' padding={{base: '0 0 15px', sm: '15px', md: "70px 30px"}}>
       <Container maxW='8xl'  textTransform='uppercase'>
         <Grid
           templateColumns='repeat(6, 1fr)'
@@ -27,7 +27,7 @@ const Footer = () => {
           w='full'
           h='full'>
           <GridItem gridArea='1 / 1 / 2 / 3'>
-            <Text textStyle='button-medium'>{t('header.NEOBAZAAR')}</Text>
+            <Text textStyle='button-medium'>NEOBAZAAR</Text>
           </GridItem>
           <GridItem gridArea='2 / 1 / 3 / 3'>
             <Text textStyle='body-large'>{t('footer.join_team')}

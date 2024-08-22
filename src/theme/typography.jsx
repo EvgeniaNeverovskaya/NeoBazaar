@@ -4,7 +4,7 @@ const typography = extendTheme({
   "heading-small": {
     fontFamily: "Arial",
     fontWeight: 400,
-    fontSize: ["12px", "20px", "25px", "30px"],
+    fontSize: ["10px", "16px", "25px", "30px"],
     lineHeight: ["19px", "24px", "29px", "34px"],
   },
   "button-small": {
@@ -29,7 +29,7 @@ const typography = extendTheme({
     fontFamily: "Arial",
     fontWeight: 400,
     fontSize: ["6px", "8px", "10px", "14px"],
-    lineHeight: ["10px", "13px", "14px", "16px"],
+    lineHeight: ["8px", "13px", "14px", "16px"],
   },
   "body-small": {
     fontFamily: "Arial",

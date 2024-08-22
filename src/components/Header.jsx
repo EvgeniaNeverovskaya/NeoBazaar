@@ -104,7 +104,6 @@ const Header = () => {
                   display={{ base: 'block', md: 'none' }}
                   ml={["0", "10px"]}
                   padding="0"
-                  m='0 -10px -2px'
                   textAlign='center'
                 >
                   <Icon as={FaBars} boxSize={iconSizes.base} />
@@ -125,7 +124,6 @@ const Header = () => {
                   <MenuItem as={ReactRouterLink} to='/about-us' textTransform='none'>
                     {t('header.about_us')}
                   </MenuItem>
-                  <MenuDivider />
                   {isLoggedIn && (
                     <MenuItem onClick={handleLogout}>
                       {t('header.logout')}

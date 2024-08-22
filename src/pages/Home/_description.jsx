@@ -46,8 +46,8 @@ const Description = () => {
   `;
 
   const fontSize = {
-    fontSize: ["2.3em", "4em", "6em", "8em"],
-    lineHeight: ["50px", "90px", "140px", "160px"],
+    fontSize: ["3em", "4em", "6em", "8em"],
+    lineHeight: ["60px", "90px", "140px", "160px"],
   };
 
   return (
@@ -96,14 +96,14 @@ const Description = () => {
             <Box
               position='relative'
               mt='30px'
-              p='20px'
+              p='10px'
               animation={`${fadeIn} 3s ease-out forwards`}
               mx='auto'
               maxW='80%'
               borderTop='2px solid #747171e8'
               borderBottom='2px solid #747171e8'>
               <Text
-                fontSize={{ base: "10px", sm: "16px", lg: "23px" }}
+                fontSize={{ base: "9px", sm: "16px", lg: "23px" }}
                 fontFamily='Arial'
                 color='#383838'
                 fontWeight='400'
