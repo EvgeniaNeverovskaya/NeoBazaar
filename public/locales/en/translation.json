@@ -2,9 +2,9 @@
   "header": {
     "about_us": "About Us",
     "catalog": "Catalog",
-    "logout": "Logout",
-    "login": "Log In",
-    "NEOBAZAAR": "NEOBAZAAR"
+    "profile": "Profile",
+    "logout": "Log out",
+    "login": "Log In"
   },
   "footer": {
     "join_team": "JOIN THE TEAM OF CUSTOMER WHO USE NEO BAZAAR TO SHARE THEIR KNOWLEDGE. EASILY CREATE AND SELL DIGITAL DOWNLOADS USING OUR POWERFUL YET SIMPLE PLATFORM.",
@@ -17,10 +17,8 @@
     "contact_email": "neodigitalbazaar@gmail.com",
     "copyright": "© 2024 NEOBAZAAR"
   },
-  "startTrading": {
-    "start_trading": "Start Treding",
-    "trading_descriptions_1": "Share your work.",
-    "trading_descriptions_2": "Someone out there needs it."
+  "startSelling": {
+    "start_selling": "Start Selling"
   },
   "category": {
     "all": "All",
@@ -58,12 +56,12 @@
 
     "sell_to_anyone": {
       "name": "Sell to anyone",
-      "1": "BUILD A LOYAL FOLLOWING WITH SIMPLE POSTS, EMAIL NEWSLETTERS, AND AUTOMATED WORKFLOWS. PLUS LET YOUR CUSTOMERS PAY WHAT THEY WANT OR CHOOSE BETWEEN ONE-TIME, RECURRING, OR FIXED-LENGTH PAYMENTS IN YOUR CURRENCY OF CHOICE."
+      "1": "Build a loyal following with simple posts, email newsletters, and automated workflows. Plus let your customers pay what they want or choose between one-time, recurring, or fixed-length payments in your currency of choice."
     },
 
     "sell_anywhere": {
       "name": "Sell anywhere",
-      "1": "CREATE AND CUSTOMIZE YOUR STOREFRONT WITH OUR ALL-IN-ONE PLATFORM OR CHOOSE TO USE YOUR PERSONAL SITE INSTEAD. WITH ZAPIER, YOU CAN SEAMLESSLY CONNECT YOUR NEOBAZAAR ACCOUNT TO THOUSANDS OF APPS IN YOUR CURRENT STACK."
+      "1": "Create and customize your storefront with our all-in-one platform or choose to use your personal site instead. With Zapier, you can seamlessly connect your neobazaar account to thousands of apps in your current stack."
     },
 
     "make_your_own_way": {
@@ -75,7 +73,7 @@
     "digital": "Digital",
     "products": "Products",
     "name": "DIGITAL PLATFORM",
-    "description": "THIS IS A SPACE FOR INTERACTION BETWEEN CREATORS AND USERS, PROMOTES THE DISTRIBUTION OF DIGITAL CONTENT AND PROVIDES OPPORTUNITIES FOR MONETIZATION AND DEVELOPMENT IN THE DIGITAL ENVIRONMENT."
+    "description": "This is a space for interaction between creators and users, promotes the distribution of digital content and provides opportunities for monetization and development in the digital environment."
   },
   "signup": {
     "create_account": "Create your account",

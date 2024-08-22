@@ -4,7 +4,8 @@ import ProductsList from "./_productsList";
 import Categories from "./_categories";
 import Header from "../../components/Header";
 import Footer from "../../components/footer";
-import StartTrading from "./_startTrading";
+import { Box } from "@chakra-ui/react";
+import ButtonStartSelling from "../../components/buttonStartSelling";
 
 
 
@@ -13,10 +14,12 @@ const Home = () => {
   return (
     <>
     <Header/>
+    <Box bg='lemon'>
     <Description/>
     <ProductsList/>
+    <ButtonStartSelling/>
     <Categories/>  
-    <StartTrading/>
+    </Box>
     <Footer/>
     </>
   );

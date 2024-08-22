@@ -9,6 +9,7 @@ const customColors = {
     pink: "rgba(255, 144, 232, 0.4)",
     orange: "rgba(255, 201, 0, 1)",
     lilac: "rgba(144, 168, 237, 1)",
+    lemon: "rgba(253, 252, 246, 1)"
 };
 
 export default customColors;

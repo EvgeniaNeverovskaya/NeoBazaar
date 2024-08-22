@@ -4,12 +4,10 @@ import { useNavigate } from "react-router-dom";
 import { AuthContext } from "./authContext";
 import { useTranslation } from "react-i18next";
 
-
-const ButtonStartTrading = () => {
+const ButtonStartSelling = () => {
   const { isLoggedIn } = useContext(AuthContext);
   const navigate = useNavigate();
   const { t } = useTranslation();
-
 
   const handleButtonClick = () => {
     if (isLoggedIn) {
@@ -21,20 +19,20 @@ const ButtonStartTrading = () => {
   return (
     <Center>
       <Button
+        m={{base: '5px 0', md:'20px 0'}}
         onClick={handleButtonClick}
         bg='rgba(178, 51, 134, 1)'
-        p='30px 20px'
+        p={["12px 20px", "16px 30px", "20px 50px", "24px 65px"]}
         color='#fff'
-        minW='280px'
         borderRadius='10px'
-        fontSize='25px'
+        fontSize={["12px", "14px", "16px", "20px"]}
         fontFamily='Arial'
-        lineHeight='28.75px'
+        lineHeight='23px'
         fontWeight='400'>
-        {t('startTrading.start_trading')}
+        {t("startSelling.start_selling")}
       </Button>
     </Center>
   );
 };
 
-export default ButtonStartTrading;
+export default ButtonStartSelling;

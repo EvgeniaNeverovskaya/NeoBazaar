@@ -12,15 +12,17 @@ import {
 import { Link as ReactRouterLink } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 
+
+
 const Footer = () => {
   const { t } = useTranslation();
   
   return (
-    <Box as='footer' bg='rgba(255, 144, 232)' padding='50px 0 30px'>
-      <Container maxW='8xl' padding='0 30px' textTransform='uppercase'>
+    <Box as='footer' bg='lemon' padding={{base: '0', sm: '15px', md: "70px 30px"}}>
+      <Container maxW='8xl'  textTransform='uppercase'>
         <Grid
-          templateColumns='repeat(2, 1.5fr) 1fr 1.5fr  0.5fr 0.8fr'
-          templateRows='0.8fr 1fr 0.5fr 0.7fr 0.5fr'
+          templateColumns='repeat(6, 1fr)'
+          templateRows={{base:'0.3fr 1fr 0.2fr 0.3fr', md: '1fr 1fr 1.5fr 1fr' }}
           gap={0}
           w='full'
           h='full'>
@@ -33,15 +35,15 @@ const Footer = () => {
           </GridItem>
           <GridItem gridArea='4 / 1 / 6 / 3'></GridItem>
           <GridItem
-            gridArea='6 / 1 / 7 / 3'
+            gridArea='4 / 1 / 4 / 3'
             display='flex'
-            alignItems='flex-end'>
+            alignItems='flex-start'>
             <Text textStyle='button-medium'>{t('footer.copyright')}</Text>
           </GridItem>
           <GridItem gridArea='1 / 4 / 2 / 5'>
           <Text textStyle='button-medium'>{t('footer.information')}</Text>
           </GridItem>
-          <GridItem gridArea='1 / 5 / 2 / 6'>
+          <GridItem gridArea='1 / 5 / 2 / 6' ml={4}>
           <Text textStyle='button-medium'>{t('footer.community')}</Text>
           </GridItem>
           <GridItem gridArea='1 / 6 / 2 / 7'></GridItem>
@@ -63,7 +65,7 @@ const Footer = () => {
               </ListItem>
             </List>
           </GridItem>
-          <GridItem gridArea='2 / 5 / 3 / 6'>
+          <GridItem gridArea='2 / 5 / 3 / 6' ml={4}>
             <List
               textStyle='body-large'
               display='flex'
@@ -78,10 +80,10 @@ const Footer = () => {
           <GridItem gridArea='4 / 4 / 5 / 7'>
             <List
               fontWeight='500'
-              fontSize='20px'
-              lineHeight='23px'
+              fontSize={["9px", "12px", "16px", "20px"]}
+              lineHeight={["9px", "12px", "18px", "23px"]}
               textTransform='none'>
-             <ListItem p='10px 0'>{t('footer.want_to_talk')}</ListItem>
+             <ListItem >{t('footer.want_to_talk')}</ListItem>
               <ListItem>{t('footer.contact_email')}</ListItem>
             </List>
           </GridItem>

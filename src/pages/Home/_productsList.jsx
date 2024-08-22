@@ -10,25 +10,21 @@ import {
   Flex,
   Button,
   Image,
-  Icon,
   GridItem,
   Grid,
 } from "@chakra-ui/react";
 import { useTranslation } from "react-i18next";
 import { BsArrowRight } from "react-icons/bs";
-import { Md3DRotation } from "react-icons/md";
-import { CiFaceSmile } from "react-icons/ci";
-import { TbWorld } from "react-icons/tb";
-import { SiAudiomack } from "react-icons/si";
 import { useNavigate } from "react-router-dom";
+import products from "../../image/products .png";
 
 const flexItemStyle = {
   flexBasis: "calc(50% - 15px)",
   height: "calc(50% - 20px)",
-  margin: "15px 0",
-  blockSize: "368px",
+  margin: "7px 0",
+  blockSize: "260px",
   borderRadius: "20px",
-  padding: "35px",
+  padding: {base: "15px", md:"35px"},
 };
 
 const posAbsolute = {
@@ -37,10 +33,10 @@ const posAbsolute = {
   left: "50%",
   transform: "translate(-50%, -50%)",
   borderRadius: "28px",
-  minWidth: "280px",
-  minHeight: "153px",
+  minWidth: ["0", "0", "220px", "280px"],
+  minHeight: ["0", "0", "120px", "153px"],
   textAlign: "center",
-  lineHeight: "153px",
+  lineHeight: ["0", "0", "120px", "153px"],
 };
 
 const ProductsList = () => {
@@ -51,11 +47,15 @@ const ProductsList = () => {
   const { t } = useTranslation();
 
   return (
-    <Box as='section' p='25px' position='relative'>
-      <Container maxW='8xl' padding='0 30px'>
-        <Box bg='rgba(178, 51, 134, 1)' style={posAbsolute}>
+    <Box as='section' position='relative' bg='lemon'>
+      <Container maxW='8xl' padding={['20px 10px','30px']}>
+        <Box
+          bg='fuchsia'
+          sx={posAbsolute}
+          display={{ base: "none", md: "block" }}>
           <Image
             src={Arrow}
+            display={{ base: "none", xl: "block" }}
             style={{
               position: "absolute",
               bottom: "100%",
@@ -65,16 +65,18 @@ const ProductsList = () => {
             size={50}
           />
           <Image
-            src={Arrow2}
+            display={{ base: "none", xl: "block" }}
+            src={Arrow}
             style={{
               position: "absolute",
-              bottom: "-45%",
+              bottom: "-29%",
               left: "100%",
-              transform: "rotate(0deg)",
+              transform: "rotate(65deg)",
             }}
             size={50}
           />
           <Image
+            display={{ base: "none", xl: "block" }}
             src={Arrow}
             style={{
               position: "absolute",
@@ -85,6 +87,7 @@ const ProductsList = () => {
             size={50}
           />
           <Image
+            display={{ base: "none", xl: "block" }}
             src={Arrow}
             style={{
               position: "absolute",
@@ -94,124 +97,108 @@ const ProductsList = () => {
             }}
             size={50}
           />
-
-          <Icon
-            as={Md3DRotation}
-            boxSize={10}
-            style={{
-              position: "absolute",
-              bottom: "110%",
-              left: "-50%",
-              transform: "rotate(0deg)",
-            }}
-          />
-          <Icon
-            as={CiFaceSmile}
-            boxSize={12}
-            style={{
-              position: "absolute",
-              bottom: "135%",
-              left: "130%",
-              transform: "rotate(0deg)",
-            }}
-          />
-          <Icon
-            as={TbWorld}
-            boxSize={12}
-            style={{
-              position: "absolute",
-              bottom: "-65%",
-              left: "-50%",
-              transform: "rotate(0deg)",
-            }}
-          />
-          <Icon
-            as={SiAudiomack}
-            boxSize={10}
-            style={{
-              position: "absolute",
-              bottom: "145%",
-              left: "-25%",
-              transform: "rotate(0deg)",
-            }}
-          />
-
           <Text
             color='white'
-            fontFamily='Arial'
-            fontWeight='400'
-            fontSize='25px'>
-            {t("header.NEOBAZAAR")}
+            fontSize={["0", "0", "20px", "25px"]}
+            fontWeight='400'>
+            NEOBAZAAR
           </Text>
         </Box>
-        <Flex wrap='wrap' justify='space-between' align='flex-start'>
-          <Box bg='rgba(255, 144, 232, 0.4)' style={flexItemStyle}>
-            <Text textStyle='heading-small' mb='16px'>
-              {t("products_list.sell_anything.name")}
-            </Text>
-            <List textStyle='body-small' color='rgba(145, 101, 136, 1)'>
-              <ListItem> {t("products_list.sell_anything.1")}</ListItem>
-              <ListItem> {t("products_list.sell_anything.2")}</ListItem>
-              <ListItem> {t("products_list.sell_anything.3")}</ListItem>
-              <ListItem> {t("products_list.sell_anything.4")}</ListItem>
-              <ListItem> {t("products_list.sell_anything.5")}</ListItem>
-              <ListItem> {t("products_list.sell_anything.6")}</ListItem>
-              <ListItem> {t("products_list.sell_anything.7")}</ListItem>
-            </List>
+
+        <Flex
+          wrap='wrap'
+          justify='space-between'
+          align='flex-start'
+          direction={{ base: "column", md: "row" }}
+          gap='15px'>
+          <Box
+            bg='rgba(255, 144, 232, 0.4)'
+            sx={flexItemStyle}
+            width={{ base: "100%" }}>
+            <Flex justifyContent={{base: "space-around", md: 'flex-start' }}>
+              <Box>
+                <Text
+                  textStyle='heading-small'
+                  mb='16px'
+                  color='rgba(45, 44, 44, 1)'>
+                  {t("products_list.sell_anything.name")}
+                </Text>
+                <List textStyle='body-small' color='rgba(145, 101, 136, 1)'>
+                  <ListItem> {t("products_list.sell_anything.1")}</ListItem>
+                  <ListItem> {t("products_list.sell_anything.2")}</ListItem>
+                  <ListItem> {t("products_list.sell_anything.3")}</ListItem>
+                  <ListItem> {t("products_list.sell_anything.4")}</ListItem>
+                  <ListItem> {t("products_list.sell_anything.5")}</ListItem>
+                  <ListItem> {t("products_list.sell_anything.6")}</ListItem>
+                  <ListItem> {t("products_list.sell_anything.7")}</ListItem>
+                </List>
+              </Box>
+              <Image
+                display={{ base: "block", sm: "block", md: "none" }}
+                src={products}
+                maxW='140px'
+                width='40%' 
+                alignSelf='center'
+              />
+            </Flex>
           </Box>
-          <Box bg='rgba(167, 217, 212, 1)' style={flexItemStyle}>
-            <Text textAlign='end' textStyle='heading-small' mb='16px'>
+
+          <Box bg='rgba(167, 217, 212, 1)' sx={flexItemStyle}>
+            <Text
+              textAlign='end'
+              textStyle='heading-small'
+              mb='16px'
+              color='rgba(45, 44, 44, 1)'>
               {t("products_list.sell_to_anyone.name")}
             </Text>
             <Text
               textStyle='body-small'
               textAlign='right'
-              color='rgba(0, 90, 78, 1)'
-              textTransform='uppercase'>
+              color='rgba(0, 90, 78, 1)'>
               {t("products_list.sell_to_anyone.1")}
             </Text>
           </Box>
           <Box
-            bg='rgba(255, 233, 153, 1)'
-            style={flexItemStyle}
+            bg='rgba(219, 231, 255, 1)'
+            sx={flexItemStyle}
             alignContent='flex-end'>
             <Text textStyle='heading-small' mb='16px'>
               {t("products_list.sell_anywhere.name")}
             </Text>
-            <Text
-              textStyle='body-small'
-              color='rgba(159, 137, 57, 1)'
-              textTransform='uppercase'>
+            <Text textStyle='body-small' color='rgba(99, 111, 135, 1)'>
               {t("products_list.sell_anywhere.1")}
             </Text>
           </Box>
           <Box
-            bg='rgba(255, 144, 232, 0.4)'
-            style={flexItemStyle}
-            display='flex'>
+            bg='rgba(255, 241, 221, 1)'
+            sx={flexItemStyle}
+            display={{ base: "none", md: "flex" }}>
             <Grid
               templateColumns='repeat(2, 1fr)'
               templateRows='2fr repeat(2, 1fr)'
               gap={0}
               w='100%'>
-              <GridItem gridArea='2 / 1 / 3 / 3' p={4}>
-                <Text textAlign='center' textStyle='heading-small' mb='16px'>
+              <GridItem gridArea='2 / 1 / 3 / 3'>
+                <Text textAlign='center' textStyle='heading-small'>
                   {t("products_list.make_your_own_way.name")}
                 </Text>
               </GridItem>
               <GridItem gridArea='3 / 2 / 4 / 3' p='15px 10px 0'>
                 <Button
                   onClick={goToAllPage}
-                  rightIcon={<BsArrowRight fontSize='x-large' />}
-                  colorScheme='teal'
+                  rightIcon={
+                    <BsArrowRight fontSize={["md", "lg", "xl", "2xl"]} />
+                  }
+                  bg='fuchsia'
+                  color='white'
                   w='100%'
-                  p='30px 20px'
+                  p='24px 20px'
                   display='flex'
                   justifyContent='space-between'
                   fontFamily='Arial'
                   fontWeight='400'
-                  fontSize='25px'
-                  lineHeight='29px'>
+                  fontSize={["10px", "12px", "15px", "20px"]}
+                  lineHeight={["18px", "20px", "22px", "24px"]}>
                   {t("products_list.make_your_own_way.btn")}
                 </Button>
               </GridItem>

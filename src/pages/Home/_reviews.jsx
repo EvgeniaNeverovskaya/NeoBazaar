@@ -82,6 +82,7 @@ const Reviews = () => {
   };
   return (
     <Box
+    bg='lemon'
       as='section'
       padding='50px 0'
       overflowX='scroll'

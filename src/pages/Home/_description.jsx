@@ -5,60 +5,115 @@ import {
   Text,
   Grid,
   GridItem,
-  Heading,
+  keyframes,
+  useBreakpointValue,
 } from "@chakra-ui/react";
 import { useTranslation } from "react-i18next";
+import Fon from "../../image/nezhnyy-fon-dlya-fotoshopa-v-pastelnyh-tonah-linii.jpg"; // Импорт изображения
 
 const Description = () => {
-  const { t, i18n  } = useTranslation();
+  const { t, i18n } = useTranslation();
 
-  const isRussian = i18n.language === "ru";
+  const slideInLeft = keyframes`
+    from {
+      transform: translateX(-100%);
+      opacity: 0;
+    }
+    to {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  `;
 
+  const slideInRight = keyframes`
+    from {
+      transform: translateX(100%);
+      opacity: 0;
+    }
+    to {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  `;
+
+  const fadeIn = keyframes`
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  `;
+
+  const fontSize = {
+    fontSize: ["2.3em", "4em", "6em", "8em"],
+    lineHeight: ["50px", "90px", "140px", "160px"],
+  };
 
   return (
-    <Box as='section' bg='#B23386'>
-      <Container maxW='8xl' padding='0 30px'>
-        <Grid
-          color='white'
-          padding='50px 0 100px'
-          templateColumns='repeat(7, 1fr)'
-          templateRows='repeat(3, 1fr)'
-          gap={0}>
-          <GridItem gridColumn='5 / span 3' gridRow='2 / 3'>
+    <Box as='section' position='relative'>
+      <Box paddingBottom={{base: "1px"}}
+        bgImage={`url(${Fon})`}
+        bgSize='cover'
+        bgPosition='center'
+        bgRepeat='no-repeat'
+        color='white'
+        position='relative'
+        _after={{
+          content: '""',
+          position: "absolute",
+          bottom: 0,
+          left: 0,
+          right: 0,
+          height: { base: "10%", sm: "10%" },
+          bgGradient: "linear(to-b, rgba(255, 255, 255, 0) 0%, lemon 100%)",
+        }}>
+        <Container maxW='8xl' padding={["80px 10px 0", "120px 30px 30px"]}>
+          <Box position='relative' textAlign='center' mb='50px'>
+            <Grid
+              templateRows='repeat(2, auto)'
+              justifyItems='center'
+              alignItems='center'
+              
+              >
+              <GridItem
+                sx={fontSize}
+                fontWeight='bold'
+                animation={`${slideInLeft} 2s ease-out forwards`}
+                mr='32%'
+                textShadow='2px 2px 4px rgba(0, 0, 0, 0.8)'>
+                {t("description.digital")}
+              </GridItem>
+              <GridItem
+                sx={fontSize}
+                fontWeight='bold'
+                animation={`${slideInRight} 2s ease-out forwards`}
+                ml='25%'
+                textShadow='2px 2px 4px rgba(0, 0, 0, 0.8)'>
+                {t("description.products")}
+              </GridItem>
+            </Grid>
             <Box
-              textTransform='uppercase'
-              display='flex'
-              flexDirection='column'
-              gap='20px'>
-              <Text textStyle='body-large'>{t("description.name")}</Text>
+              position='relative'
+              mt='30px'
+              p='20px'
+              animation={`${fadeIn} 3s ease-out forwards`}
+              mx='auto'
+              maxW='80%'
+              borderTop='2px solid #747171e8'
+              borderBottom='2px solid #747171e8'>
               <Text
+                fontSize={{ base: "10px", sm: "16px", lg: "23px" }}
+                fontFamily='Arial'
+                color='#383838'
                 fontWeight='400'
-                fontSize='16px'
-                lineHeight='18.4px'
-                fontFamily='Arial'>
+                textAlign='center'>
                 {t("description.description")}
               </Text>
             </Box>
-          </GridItem>
-          <GridItem gridColumn='1 / span 3' gridRow='3 / 4'>
-            <Heading
-             fontSize={isRussian ? 'clamp(2.125rem, -4.9rem + 13.8vw, 7.5rem)' : 'clamp(3.125rem, -2.679rem + 15.476vw, 11.25rem)'} 
-             lineHeight='170px'
-              fontWeight='500'>
-              {t("description.digital")}
-            </Heading>
-          </GridItem>
-          <GridItem gridColumn='4 / span 4' gridRow='4 / 5'>
-            <Heading
-             fontSize={isRussian ? 'clamp(2.125rem, -4.3rem + 13.8vw, 7.5rem)' : 'clamp(3.125rem, -2.679rem + 15.476vw, 11.25rem)'} 
-              lineHeight='140px'
-              fontWeight='500'
-              textAlign='end'>
-              {t("description.products")}
-            </Heading>
-          </GridItem>
-        </Grid>
-      </Container>
+          </Box>
+        </Container>
+      </Box>
     </Box>
   );
 };
